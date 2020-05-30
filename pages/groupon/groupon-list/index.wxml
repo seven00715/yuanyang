@@ -1,0 +1,25 @@
+
+<view class="cu-card article no-card">
+  <view class="cu-item" wx:for="{{ grouponInfoList }}" wx:key="index">
+    <view class="content">
+      <image src="{{item.picUrl}}" mode="aspectFill" class="row-img margin-top-xs"></image>
+      <view class="desc row-info solid-bottom padding-bottom">
+        <view class="text-black margin-top-sm overflow-2">
+          <text class="cu-tag line-orange radius margin-right-xs">{{item.grouponNum}}人团</text>{{item.name}}
+        </view>
+        <view class="flex justify-start margin-top-sm">
+          <view class="text-price text-bold text-red">{{item.grouponPrice}}</view>
+          <view class="text-price text-decorat text-sm text-gray margin-left-sm">{{item.goodsSku.salesPrice}}</view>
+          <view class="cu-tag bg-red radius sm margin-left" wx:if="{{item.goodsSpu.freightTemplat.type == '2'}}">包邮</view>
+        </view>
+        <view class="flex justify-end margin-top-sm">
+          <view class="text-sm text-gray margin-left-sm">已有{{item.launchNum}}人参与</view>
+        </view>
+        <view class="flex justify-center margin-top">
+          <navigator class="cu-btn round bg-red cuIcon-forward" hover-class='none' url='/pages/groupon/groupon-detail/index?id={{item.id}}'>前去拼团</navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cu-load bg-gray {{loadmore?'loading':'over'}}"></view>

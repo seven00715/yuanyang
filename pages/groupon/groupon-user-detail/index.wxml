@@ -1,0 +1,143 @@
+
+<wxs module="dateUtil" src="../../../utils/dateUtil.wxs"></wxs>
+<view class="cu-card article">
+  <view class="cu-item">
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action">
+        <text class="cu-tag bg-red radius margin-right-xs">{{grouponUser.grouponNum}}人团</text>{{grouponInfo.name}}
+      </view>
+    </view>
+    <view class="content">
+      <image src="{{grouponInfo.picUrl}}" mode="aspectFill" class="row-img margin-top-xs"></image>
+      <view class="desc row-info">
+        <view class="text-black margin-top-sm overflow-2">{{grouponInfo.goodsSpu.name}}</view>
+        <view class="text-gray text-sm margin-top-sm overflow-1" wx:if="{{grouponInfo.goodsSku.specs.length > 0}}">
+          {{specInfo}}
+        </view>
+        <view class="flex justify-start margin-top-sm">
+          <view class="text-price text-bold text-red">{{grouponUser.grouponPrice}}</view>
+          <view class="text-price text-decorat text-sm text-gray margin-left-sm">{{grouponInfo.goodsSku.salesPrice}}</view>
+          <view class="cu-tag bg-red radius sm margin-left" wx:if="{{grouponInfo.goodsSpu.freightTemplat.type == '2'}}">包邮</view>
+        </view>
+        <view class="flex justify-start margin-top-sm">
+          <text class="text-sm text-gray">已有{{grouponInfo.launchNum}}人参与</text><text class="text-grey text-sm margin-left" bindtap="ruleShow">拼团规则</text>
+        </view>
+      </view>
+    </view>
+    <view class="padding-lr text-center margin-top-sm">
+      <!-- 没参与 -->
+      <view wx:if="{{!grouponUser.grouponUser}}">
+        <button class="cu-btn round bg-red cuIcon-cardboardforbid lg" wx:if="{{grouponInfo.enable == '1' && grouponUser.status == '0'}}" bindtap="toGroupon">参与拼团</button>
+        <button class="cu-btn round bg-red cuIcon-cardboardforbid lg" wx:if="{{grouponUser.status == '1'}}">拼团完成</button>
+        <button class="cu-btn round bg-gray cuIcon-close lg" wx:if="{{grouponUser.status == '2'}}">活动已过期</button>
+        <view class="text-gray text-sm margin-top">{{grouponUser.validBeginTime}}至{{grouponUser.validEndTime}}</view>
+      </view>
+      <!-- 已经参与 -->
+      <view wx:if="{{grouponUser.grouponUser}}">
+        <button class="cu-btn round bg-red cuIcon-friend lg" wx:if="{{grouponUser.status == '0'}}" bindtap="shareShow">邀请好友拼团</button>
+        <button class="cu-btn round bg-orange cuIcon-check lg" wx:if="{{grouponUser.status == '1'}}">已完成拼团</button>
+        <button class="cu-btn round bg-gray cuIcon-close lg" wx:if="{{grouponUser.status == '2'}}">该拼团已过期</button>
+        <view class="text-gray text-sm margin-top">{{grouponUser.validBeginTime}}至{{grouponUser.validEndTime}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-list menu card-menu" wx:if="{{grouponUserList.length > 0}}">
+  <view class="cu-item" wx:if="{{grouponUser.status == '0'}}">
+    <view class="content text-bold">
+        倒计时：<count-down class="text-red" outTime="{{dateUtil.getOutTime(grouponUser.validEndTime)}}" bind:countDownDone="countDownDone"/>
+    </view>
+  </view>
+
+  <view class="cu-item">
+    <view class="content margin-tb-sm text-center">
+      <view class="cu-avatar round lg margin-xs text-yellow groupon-user" style="background-image:url({{grouponUser.headimgUrl}});">
+        <view class="cu-tag badge bg-yellow">团长</view>
+      </view>
+      <view class="cu-avatar round lg margin-xs text-yellow groupon-user" wx:for="{{grouponUserList}}" wx:key wx:if="{{item.id != grouponUser.id}}" style="background-image:url({{item.headimgUrl}});"></view>
+      <view class="cu-avatar round lg margin-xs groupon-user-no" wx:for="{{grouponInfo.grouponNum - grouponUserList.length}}" wx:key>
+        <text>?</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-list menu card-menu" wx:if="{{grouponUser.grouponUser}}">
+  <view class="cu-item flex response">
+    <view class="flex-twice text-df">
+      <view class="text-gray margin-left-sm">拼团时间</view>
+    </view>
+    <view class="flex-treble text-df">
+      <text class="text-black">{{grouponUser.grouponUser.createTime}}</text>
+    </view>
+    <view class="flex-sub text-df text-gray text-right">
+      <text class="margin-right-sm"></text>
+    </view>
+  </view>
+  <navigator url="/pages/order/order-detail/index?id={{grouponUser.grouponUser.orderId}}" hover-class="none" class="cu-item flex response">
+    <view class="flex-twice text-df">
+      <view class="text-gray margin-left-sm">订单详情</view>
+    </view>
+    <view class="flex-treble text-df"></view>
+    <view class="flex-twice text-df text-gray text-right">
+      点击查看<text class="cuIcon-right margin-right-sm"></text>
+    </view>
+  </navigator>
+</view>
+
+<view class="cu-card">
+  <view class="cu-item">
+    <view class="cu-bar bg-white">
+    <view class="content">商品信息</view>
+    </view>
+    <view class="bg-white">
+      <template is="wxParse" data="{{wxParseData:description.nodes}}"/>
+    </view>
+    <view class="cu-load bg-gray">已经到底啦...</view>
+  </view> 
+</view>
+<!-- html转wxml -->
+<import src="/public/wxParse/wxParse.wxml"/>
+
+<poster id="poster" hide-loading="{{false}}" preload="{{false}}" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail"></poster>
+<view class="cu-modal bottom-modal {{shareShow}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white">
+      <view class="action text-green"></view>
+      <view class="action text-red" bindtap="shareHide">取消</view>
+    </view>
+    <view class="padding flex flex-direction">
+      <button class="cu-btn bg-green lg" open-type='share'>发送给朋友</button>
+      <button class="cu-btn bg-blue margin-tb-sm lg" bindtap="onCreatePoster">生成海报</button>
+    </view>
+  </view>
+</view>
+
+<view class="cu-modal {{posterShow ? 'show' : ''}}">
+  <view class="cu-dialog">
+    <view style="height: calc(100vh - 200rpx)">
+      <image src="{{posterUrl}}" style="height: 100%;"></image>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action margin-0 flex-sub" bindtap="hidePosterShow">取消</view>
+      <view class="action margin-0 flex-sub solid-left text-red text-bold" bindtap="savePoster">保存到相册</view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-modal {{modalRule}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">规则说明</view>
+      <view class="action" bindtap="ruleHide">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-lr-xl padding-tb-sm text-left">
+      <text>{{grouponInfo.grouponRule}}</text>
+    </view>
+  </view>
+</view>
+
+<user-auth wx:if="{{wxUser}}"/>

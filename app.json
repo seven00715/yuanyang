@@ -1,0 +1,79 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/base/search/index",
+    "pages/goods/goods-category/index",
+    "pages/goods/goods-list/index",
+    "pages/goods/goods-detail/index",
+    "pages/shopping-cart/index",
+    "pages/order/order-confirm/index",
+    "pages/order/order-list/index",
+    "pages/order/order-detail/index",
+    "pages/order/order-logistics/index",
+    "pages/user/user-center/index",
+    "pages/user/user-address/list/index",
+    "pages/user/user-address/form/index",
+    "pages/user/user-collect/index",
+    "pages/appraises/form/index",
+    "pages/appraises/list/index",
+    "pages/order/order-refunds/form/index",
+    "pages/order/order-refunds/submit/index",
+    "pages/user/user-points-record/index",
+    "pages/coupon/coupon-user-list/index",
+    "pages/coupon/coupon-list/index",
+    "pages/bargain/bargain-list/index",
+    "pages/bargain/bargain-detail/index",
+    "pages/bargain/bargain-user-list/index",
+    "pages/bargain/bargain-order-confirm/index",
+    "pages/groupon/groupon-list/index",
+    "pages/groupon/groupon-detail/index",
+    "pages/groupon/groupon-user-list/index",
+    "pages/groupon/groupon-user-detail/index",
+    "pages/groupon/groupon-order-confirm/index",
+    "pages/live/room-list/index",
+    "pages/livePlayer2/livePlayer"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "color": "#282828",
+    "selectedColor": "#e93323",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "iconPath": "public/img/1-001.png",
+        "selectedIconPath": "public/img/1-002.png",
+        "text": "首页"
+      },{
+        "pagePath": "pages/livePlayer2/livePlayer",
+        "iconPath": "public/img/live.png",
+        "selectedIconPath": "public/img/live@selected.png",
+        "text": "直播new"
+      },
+      {
+        "pagePath": "pages/user/user-center/index",
+        "iconPath": "public/img/4-001.png",
+        "selectedIconPath": "public/img/4-002.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {
+    
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx9f4be390e1fee4f2"
+  ],
+  "plugins": {
+    "live-player-plugin": {
+      "version": "1.0.11",
+      "provider": "wx2b03c6e691cd7370"
+    }
+  }
+}

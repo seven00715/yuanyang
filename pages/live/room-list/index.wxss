@@ -1,0 +1,18 @@
+.live-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  box-sizing: content-box;
+  padding: 20rpx;
+}
+.live-box {
+  width: 349rpx;
+  background-color: #fff;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+  border-radius: 10rpx;
+}
+.cu-card.case .image .cu-bar {
+  padding: unset;
+  justify-content: unset
+}

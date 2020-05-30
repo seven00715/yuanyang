@@ -1,0 +1,31 @@
+
+<scroll-view scroll-x class="bg-white nav fixed">
+  <view class="flex text-center">
+    <view class="cu-item flex-sub {{index==tabCur?'text-red cur':''}}" wx:for="{{status}}" wx:key="index" 
+    bindtap="tabSelect" data-index="{{index}}" data-key="{{item.key}}">
+      {{item.value}}
+    </view>
+  </view>
+</scroll-view>
+<view class="cu-card article no-card margin-top-bar">
+  <view class="cu-item" wx:for="{{ bargainUserList }}" wx:key="index">
+    <view class="content">
+      <image src="{{item.bargainInfo.picUrl}}" mode="aspectFill" class="row-img margin-top-xs"></image>
+      <view class="desc row-info solid-bottom">
+        <view class="text-black margin-top-sm overflow-2">{{item.bargainInfo.name}}</view>
+        <view class="flex justify-start margin-top-sm">
+          <view class="text-price text-bold text-red">{{item.bargainInfo.bargainPrice}}</view>
+          <view class="text-price text-decorat text-sm text-gray margin-left-sm">{{item.bargainInfo.goodsSku.salesPrice}}</view>
+          <view class="cu-tag bg-red radius sm margin-left" wx:if="{{item.bargainInfo.goodsSpu.freightTemplat.type == '2'}}">包邮</view>
+        </view>
+        <view class="flex justify-center margin-top">
+          <view class="cu-tag line-{{item.status == '0' ? 'orange' : item.status == '1' ? 'green' : 'gray' }}">
+            {{item.status == '0' ? '进行中' : item.status == '1' ? '已完成' : '已过期' }}
+          </view>
+          <navigator class="cu-btn round bg-red cuIcon-forward margin-left" hover-class='none' url='/pages/bargain/bargain-detail/index?id={{item.bargainInfo.id}}'>查看详情</navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cu-load bg-gray {{loadmore?'loading':'over'}}"></view>

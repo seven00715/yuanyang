@@ -1,0 +1,22 @@
+.row-img{
+  width: 280rpx!important;
+  height: 280rpx!important;
+  border-radius: 10rpx
+}
+.row-info{
+  display: block!important;
+}
+.cu-bar.tabbar.shop .action {
+  width: unset;
+}
+.cu-avatar{
+  display: inline-flex!important;
+}
+.groupon-user{
+  border-style: solid;
+}
+.groupon-user-no{
+  border-style: dotted;
+  background-color: #fff;
+  color: #ccc
+}

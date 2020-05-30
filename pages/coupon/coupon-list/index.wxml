@@ -1,0 +1,9 @@
+
+<view class="cu-list bg-white">
+  <view class="cu-item padding-tb-xs padding-lr" wx:for="{{couponInfoList}}" wx:key="index">
+    <coupon-info
+      couponInfo="{{item}}"
+    />
+  </view>
+</view>
+<view class="cu-load bg-gray {{loadmore?'loading':'over'}}"></view>
