@@ -2,7 +2,7 @@
   ColorUi for MP-weixin  v2.1.4 | by 文晓港 2019年4月25日19:15:42
   仅供学习交流，如作它用所承受的法律责任一概与作者无关
   使用ColorUi开发扩展与插件时，请注明基于ColorUi开发
-  
+
   （QQ交流群：240787041）
 */
 
@@ -13,6 +13,8 @@ page {
 	/* Color 可以自定义相关配色 */
 	/* var属性兼容性 --> https://www.caniuse.com/#feat=css-variables */
 	/* 标准色 */
+	--co80:#808080;
+	--black2: #000;
 	--red: #e54d42;
 	--orange: #f37b1d;
 	--yellow: #fbbd08;
@@ -1241,7 +1243,10 @@ button.icon.lg {
 	transition: all .6s ease-in-out 0s;
 	transform: translateX(0rpx)
 }
-
+.cu-list>.cu-item .img{
+  width: 65rpx;
+  height: 47rpx;
+}
 .cu-list>.cu-item.move-cur {
 	transform: translateX(-260rpx)
 }
@@ -1609,7 +1614,7 @@ button.icon.lg {
 }
 
 .cu-bar .action:first-child {
-	margin-left: 30rpx;
+	/* margin-left: 30rpx; */
 	font-size: 30rpx;
 }
 
@@ -1628,7 +1633,7 @@ button.icon.lg {
 }
 
 .cu-bar .action:last-child {
-	margin-right: 30rpx;
+	/* margin-right: 30rpx; */
 }
 
 .cu-bar .action>text[class*="cuIcon-"],
@@ -3934,8 +3939,10 @@ scroll-view.cu-steps .cu-item {
 	color: var(--black);
 }
 
+
 .text-white,
 .line-white,
 .lines-white {
-	color: var(--white);
+	color: var(--co80);
 }
+/* =============我的 */

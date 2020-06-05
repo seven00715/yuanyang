@@ -30,7 +30,6 @@ Page({
   },
   loadData(){
     this.swiperGet()
-    this.noticeGet()
     this.goodsNew()
     this.goodsHot()
     this.goodsPage()
@@ -66,21 +65,7 @@ Page({
         }
       })
   },
-  //获取广告通知
-  noticeGet() {
-    app.api.noticeGet({
-      type: '2',
-      enable: '1'
-    })
-      .then(res => {
-        let notice = res.data
-        if (notice) {
-          this.setData({
-            noticeData: notice.listNoticeItem
-          })
-        }
-      })
-  },
+
   //新品首发
   goodsNew() {
     app.api.goodsPage({

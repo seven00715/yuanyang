@@ -1,4 +1,15 @@
 
+
+<view class="info-waper">
+  <view class="row-wraper avatar-wraper">
+    <text class="text">头像</text>
+    <view>
+      <view class="cu-avatar round lg" style="background-image:url({{wxUser.headimgUrl}})">{{!wxUser.headimgUrl ? '头' : ''}}</view>
+      <text class="cuIcon-right"></text>
+    </view>
+  </view>
+</view>
+
 <view class="cu-list menu-avatar">
   <view class="cu-item">
     <view class="cu-avatar round lg" style="background-image:url({{wxUser.headimgUrl}})">{{!wxUser.headimgUrl ? '头' : ''}}</view>
@@ -15,6 +26,10 @@
     </view>
   </view>
 </view>
+
+
+
+
 
 <view class="padding flex text-center text-grey bg-gradual-red shadow-warp" wx:if="{{userInfo}}">
   <view class="flex flex-sub flex-direction solid-right">

@@ -1,6 +1,7 @@
 @import "public/colorui/main.wxss";
 @import "public/colorui/icon.wxss";
 @import "public/colorui/animation.wxss";
+@import "public/colorui/base.wxss";
 .overflow {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -25,9 +26,6 @@
 }
 .display-i{
   display: inline
-}
-.margin-top-bar{
-  margin-top: 80rpx
 }
 .margin-bottom-bar{
   margin-bottom: 80rpx
