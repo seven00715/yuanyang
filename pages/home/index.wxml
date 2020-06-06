@@ -10,7 +10,8 @@
   <view class="cu-list grid col-5 no-border">
     <view class="cu-item">
       <navigator url="/pages/live/room-list/index" hover-class="none">
-        <image class="img" src="/public/img/5-house.png" mode="scaleToFill"></image>
+      <view class="iconfont iconresearch"></view>
+        <!-- <image class="img" src="/public/img/5-house.png" mode="scaleToFill"></image> -->
         <!-- <view class="lg text-red cuIcon-video"></view>
         <text class="text-black">我要购房</text> -->
         <!-- 我要购房         我要推荐         热线咨询         参与调研         交付展示 -->
@@ -18,13 +19,13 @@
     </view>
     <view class="cu-item">
       <navigator url="/pages/groupon/groupon-list/index" hover-class="none">
-        <view class="lg text-blue cuIcon-group"></view>
+        <view class="lg  text-orange iconfont iconresearch"></view>
         <text class="text-black">拼团活动</text>
       </navigator>
     </view>
     <view class="cu-item">
       <navigator url="/pages/bargain/bargain-list/index" hover-class="none">
-        <view class="lg text-orange cuIcon-cardboardforbid"></view>
+        <view class="lg text-orange iconfont iconhot"></view>
         <text class="text-black">砍价活动</text>
       </navigator>
     </view>
@@ -93,7 +94,7 @@
                 活动截止：2020年04月30日
             </view>
           </view>
-          <view class="flex-column-between-start btn-wraper"> 
+          <view class="flex-column-between-start btn-wraper">
             <view></view>
             <button>马上参与</button>
           </view>

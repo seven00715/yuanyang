@@ -2,6 +2,7 @@
 @import "public/colorui/icon.wxss";
 @import "public/colorui/animation.wxss";
 @import "public/colorui/base.wxss";
+@import "public/colorui/fonticon.wxss";
 .overflow {
   overflow: hidden;
   text-overflow: ellipsis;
