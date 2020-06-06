@@ -1500,6 +1500,14 @@ button.icon.lg {
 	font-size: 48rpx
 }
 
+.cu-list.grid>.cu-item [class*=iconfont] {
+	position: relative;
+	display: block;
+	margin-top: 20rpx;
+	width: 100%;
+	font-size: 48rpx
+}
+
 .cu-list.grid>.cu-item .cu-tag {
 	right: auto;
 	left: 50%;
@@ -3866,6 +3874,23 @@ scroll-view.cu-steps .cu-item {
 .lines-orange {
 	color: var(--orange);
 }
+
+.text-red{
+	color: rgb(224, 96, 96);
+}
+
+.text-blue{
+	color: rgb(106, 146, 225)
+}
+
+.text-green{
+	color: rgb(99, 179, 132)
+}
+
+.text-yellow2{
+	color: rgb(225, 180, 67)
+}
+
 
 .text-yellow,
 .line-yellow,

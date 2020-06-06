@@ -9,36 +9,33 @@
 
   <view class="cu-list grid col-5 no-border">
     <view class="cu-item">
-      <navigator url="/pages/live/room-list/index" hover-class="none">
-      <view class="iconfont iconresearch"></view>
-        <!-- <image class="img" src="/public/img/5-house.png" mode="scaleToFill"></image> -->
-        <!-- <view class="lg text-red cuIcon-video"></view>
-        <text class="text-black">我要购房</text> -->
-        <!-- 我要购房         我要推荐         热线咨询         参与调研         交付展示 -->
+      <navigator url="/pages/groupon/groupon-list/index" hover-class="none">
+        <view class="lg  text-orange iconfont iconhome" style="color: rgb(224, 96, 96)"></view>
+        <text class="text-black">我要购房</text>
       </navigator>
     </view>
     <view class="cu-item">
       <navigator url="/pages/groupon/groupon-list/index" hover-class="none">
-        <view class="lg  text-orange iconfont iconresearch"></view>
-        <text class="text-black">拼团活动</text>
+        <view class="lg  text-red iconfont iconrecom"></view>
+        <text class="text-black">我要推荐</text>
       </navigator>
     </view>
     <view class="cu-item">
       <navigator url="/pages/bargain/bargain-list/index" hover-class="none">
-        <view class="lg text-orange iconfont iconhot"></view>
-        <text class="text-black">砍价活动</text>
+        <view class="lg text-blue iconfont iconhot"></view>
+        <text class="text-black">热线咨询</text>
       </navigator>
     </view>
     <view class="cu-item">
       <navigator url="/pages/coupon/coupon-list/index" hover-class="none">
-        <view class="lg text-orange cuIcon-ticket"></view>
-        <text class="text-black">领优惠券</text>
+        <view class="lg text-green iconfont iconresearch"></view>
+        <text class="text-black">参与调研</text>
       </navigator>
     </view>
     <view class="cu-item">
       <navigator url="/pages/user/user-points-record/index" hover-class="none">
-        <view class="lg text-pink cuIcon-medal"></view>
-        <text class="text-black">我的积分</text>
+        <view class="lg text-yellow2 iconfont iconshow"></view>
+        <text class="text-black">交付展示</text>
       </navigator>
     </view>
   </view>
