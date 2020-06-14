@@ -45,25 +45,26 @@
       <view class='action text-bold text-black'>
          品牌资讯
       </view>
-      <navigator hover-class="none" url='/pages/goods/goods-list/index?type=2' class='action'>
+      <navigator hover-class="none" url='/pages/news/index' class='action'>
         更多<text class='cuIcon-right'></text>
       </navigator>
     </view>
+    
     <view class='wrapper-list bg-white radius row-wraper  '>
         <block>
           <navigator hover-class="none" url='/pages/goods/goods-detail/index?id={{goodsListHot[0].id}}' class='item'>
-            <view class='img-box'>
-              <image src="{{goodsListHot[0].picUrls[0] ? goodsListHot[0].picUrls[0] : '/public/img/no_pic.png'}}"></image>
+            <view class='img-box'  wx-if="{{goodsListHot[0]}}" >
+              <image src="{{goodsListHot[0].imgUrl[0] || '/public/img/no_pic.png'}}"></image>
             </view>
-            <view class='text-cut margin-xs'>天津远洋 | {{goodsListHot[0].name}}</view>
+            <view class='text-cut margin-xs'>{{goodsListHot[0].title}}</view>
           </navigator>
         </block>
         <block>
-          <navigator hover-class="none" url='/pages/goods/goods-detail/index?id={{goodsListHot[1].id}}' class='item'>
-            <view class='img-box'>
-              <image src="{{goodsListHot[1].picUrls[0] ? goodsListHot[1].picUrls[0] : '/public/img/no_pic.png'}}"></image>
+          <navigator hover-class="none" wx-if="{{goodsListHot[1]}}"  url='/pages/goods/goods-detail/index?id={{goodsListHot[1].id}}' class='item'>
+            <view class='img-box'  >
+              <image src="{{goodsListHot[1].imgUrl[0]||'/public/img/no_pic.png'}}"></image>
             </view>
-            <view class='text-cut margin-xs'>天津远洋 | {{goodsListHot[1].name}}</view>
+            <view class='text-cut margin-xs'>{{goodsListHot[0].title}}</view>
           </navigator>
         </block>
     </view>

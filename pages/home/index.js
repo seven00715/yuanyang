@@ -29,10 +29,12 @@ Page({
     })
   },
   loadData(){
+    this.fetchAcList()
     this.swiperGet()
-    this.goodsNew()
-    this.goodsHot()
-    this.goodsPage()
+    this.fetchNewsList()
+    // this.goodsNew()
+    // this.goodsHot()
+    // this.goodsPage()
   },
   onShareAppMessage: function () {
     let title = '悦生活'
@@ -65,7 +67,18 @@ Page({
         }
       })
   },
-
+  
+  fetchNewsList() {
+    app.api.fetchNewsList({
+      type: 1,
+    })
+      .then(res => {
+        let goodsListHot = res.data.records
+        this.setData({
+          goodsListHot: goodsListHot
+        })
+      })
+  },
   //新品首发
   goodsNew() {
     app.api.goodsPage({
@@ -81,7 +94,18 @@ Page({
         })
       })
   },
-  //热销单品
+  //  活动接口
+  fetchAcList() {
+    app.api.fetchAcList({
+     current:1, size:20
+    })
+      .then(res => {
+        let goodsListHot = res.data.records
+        this.setData({
+          goodsListHot: goodsListHot
+        })
+      })
+  },
   goodsHot() {
     app.api.goodsPage({
       searchCount: false,
