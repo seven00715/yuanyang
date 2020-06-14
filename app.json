@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/home/index",
+    "pages/news/index",
     "pages/base/search/index",
     "pages/goods/goods-category/index",
     "pages/goods/goods-list/index",
@@ -50,7 +51,8 @@
         "iconPath": "public/img/1-001.png",
         "selectedIconPath": "public/img/1-002.png",
         "text": "首页"
-      },{
+      },
+      {
         "pagePath": "pages/livePlayer2/livePlayer",
         "iconPath": "public/img/live.png",
         "selectedIconPath": "public/img/live@selected.png",
@@ -64,9 +66,7 @@
       }
     ]
   },
-  "usingComponents": {
-
-  },
+  "usingComponents": {},
   "navigateToMiniProgramAppIdList": [
     "wx9f4be390e1fee4f2"
   ],

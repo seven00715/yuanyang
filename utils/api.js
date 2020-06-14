@@ -119,6 +119,13 @@ module.exports = {
   goodsCategoryGet: (data) => {//商品分类查询
     return request('/mall/api/ma/goodscategory/tree' , 'get', data, true)
   },
+  //---------------
+  fetchAcList: (data) => {//商品列表
+    return request('/mall/api//ma/yyactivity/page', 'get', data, false)
+  },
+  fetchNewsList: (data) => {//商品列表
+    return request('/mall/api/ma/yyfreshnews/page', 'get', data, false)
+  },
   goodsPage: (data) => {//商品列表
     return request('/mall/api/ma/goodsspu/page', 'get', data, false)
   },
