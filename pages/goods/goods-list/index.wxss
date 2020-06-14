@@ -1,6 +1,65 @@
-.cu-bar{
+/* .cu-bar{
   min-height: 80rpx!important
 }
 .cuIcon-triangledownfill{
   margin-top: -22rpx
+} */
+.page-body {
+  background-color: #ffffff;
+}
+.project-title {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20rpx 16rpx;
+  padding-bottom: 38rpx;
+  /* justify-content: space-around; */
+  border-top: 1rpx solid #f2f2f3;
+  border-bottom: 1rpx solid #f2f2f3;
+}
+
+.project-title .projectLabel {
+  /* flex:23%; */
+  width: 160rpx;
+  border-radius: 20rpx;
+  border: none;
+  line-height: 46rpx;
+  font-size: 20rpx;
+  margin-left: 10rpx;
+  margin-right: 0rpx;
+  margin-top: 20rpx;
+  outline: none;
+  padding: 0;
+  background-color: #f3f3f3;
+}
+button::after {
+ border: none;
+}
+.clickStyle{
+  color: #217ace;
+  background-color: #e9effc;
+
+}
+.project{
+  padding: 16rpx 43rpx 43rpx;
+}
+.project-list {
+  padding-top: 44rpx;
+}
+.project-content{
+  display: flex;
+  flex-direction: column;
+}
+.project-content::before{
+  content: '';
+  position: relative;
+  top: 30rpx;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  border: 2rpx solid #0f86c8;
+}
+.project-title {
+  padding-left: 45rpx;
 }

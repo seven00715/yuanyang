@@ -1,5 +1,4 @@
-
-<view class="cu-bar search bg-white fixed">
+<!-- <view class="cu-bar search bg-white fixed">
   <view class="search-form round">
     <text class="cuIcon-search"></text>
     <navigator class="response" hover-class='none' url='/pages/base/search/index'>
@@ -19,9 +18,9 @@
       <view class="grid text-center" bindtap="sortHandle" data-type='price'>
         价格
         <view class="margin-left-xs">
-          <view class="cuIcon-triangleupfill {{price=='asc' ? 'text-red' : ''}}" data-type='price'/>
-          <view class="basis-df"/>
-          <view class="cuIcon-triangledownfill {{price=='desc' ? 'text-red' : ''}}" data-type='price'/>
+          <view class="cuIcon-triangleupfill {{price=='asc' ? 'text-red' : ''}}" data-type='price' />
+          <view class="basis-df" />
+          <view class="cuIcon-triangledownfill {{price=='desc' ? 'text-red' : ''}}" data-type='price' />
         </view>
       </view>
     </view>
@@ -29,9 +28,9 @@
       <view class="grid text-center" bindtap="sortHandle" data-type='sales'>
         销量
         <view class="margin-left-xs">
-          <view class="cuIcon-triangleupfill {{sales=='asc' ? 'text-red' : ''}}" data-type='sales'/>
-          <view class="basis-df"/>
-          <view class="cuIcon-triangledownfill {{sales=='desc' ? 'text-red' : ''}}" data-type='sales'/>
+          <view class="cuIcon-triangleupfill {{sales=='asc' ? 'text-red' : ''}}" data-type='sales' />
+          <view class="basis-df" />
+          <view class="cuIcon-triangledownfill {{sales=='desc' ? 'text-red' : ''}}" data-type='sales' />
         </view>
       </view>
     </view>
@@ -44,10 +43,26 @@
 </view>
 <view style="margin-top:160rpx">
   <view wx:if="{{viewType}}">
-    <goods-card goodsList="{{goodsList}}"/>
+    <goods-card goodsList="{{goodsList}}" />
   </view>
   <view wx:if="{{!viewType}}">
-    <goods-row goodsList="{{goodsList}}"/>
+    <goods-row goodsList="{{goodsList}}" />
   </view>
   <view class="cu-load bg-gray {{loadmore?'loading':'over'}}"></view>
+</view> -->
+<view class="page-body">
+  <view class="project-title">
+    <button size="mini" wx:for="{{projectList}}" wx:key="index" class="projectLabel {{item.code==clickCode?'clickStyle':''}}" bindtap="clickStyle" data-index='{{item}}'>{{item.name}}</button>
+  </view>
+  <view class="project">
+    <view class="project-list" wx:for="{{projectInfo}}" wx:key="index">
+    <view class="time">{{item.time}}</view>
+    <view class="project-content">
+      <text class="project-title">{{item.title}}</text>
+      <text class="project-progress" wx:for="{{item.progress}}" wx:key="index">{{item}}</text>
+    </view>
+
+  </view>
+  </view>
+  
 </view>

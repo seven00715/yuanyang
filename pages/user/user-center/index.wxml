@@ -1,16 +1,64 @@
-
-
-<view class="info-waper">
-  <view class="row-wraper avatar-wraper">
-    <text class="text">头像</text>
-    <view>
-      <view class="cu-avatar round lg" style="background-image:url({{wxUser.headimgUrl}})">{{!wxUser.headimgUrl ? '头' : ''}}</view>
-      <text class="cuIcon-right"></text>
+<view>
+  <view class="info-waper">
+    <!-- 头像 -->
+    <view class="row-wraper avatar-wraper">
+      <text class="text">头像</text>
+      <view>
+        <view class="cu-avatar round lg" style="background-image:url({{wxUser.headimgUrl}})">{{!wxUser.headimgUrl ? '头' : ''}}</view>
+        <text class="cuIcon-right"></text>
+      </view>
     </view>
+    <!-- 昵称 -->
+    <view class="info-name row-wraper">
+      <text class="text">昵称</text>
+      <text class="info-right"> 粉红色的热气球 <text class="cuIcon-right"></text>
+      </text>
+    </view>
+  </view>
+  <!-- 我参与的活动 -->
+  <view class="row-wraper my-active-top info-waper">
+    <text class="text">我参与的活动</text>
+    <text class="cuIcon-down"></text>
+  </view>
+  <!-- 活动列表 -->
+  <view class="active-list">
+    <view class="active-list-item">
+      <image class="active-img"></image>
+      <view class="active-right">
+        <view class="active-right-top">远洋宠粉!神秘大礼欢享来袭!</view>
+        <view class="active-right-bottom">
+          <view class="active-time">活动截止: 2020年101月30日 </view>
+          <view class="active-more">详情
+            <text class="cuIcon-right"></text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="active-list-item">
+      <image class="active-img"></image>
+      <view class="active-right">
+        <view class="active-right-top">远洋宠粉!神秘大礼欢享来袭!</view>
+        <view class="active-right-bottom">
+          <view class="active-time">活动截止: 2020年101月30日 </view>
+          <view class="active-more">详情
+            <text class="cuIcon-right"></text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 身份验证 -->
+  <view class="info-name row-wraper info-waper auth">
+    <text class="text">身份验证</text>
+    <text class="info-right"> 未验证 <text class="cuIcon-right"></text>
+    </text>
   </view>
 </view>
 
-<view class="cu-list menu-avatar">
+
+
+<!-- <view class="cu-list menu-avatar">
   <view class="cu-item">
     <view class="cu-avatar round lg" style="background-image:url({{wxUser.headimgUrl}})">{{!wxUser.headimgUrl ? '头' : ''}}</view>
     <view class="content">
@@ -25,7 +73,7 @@
       </view>
     </view>
   </view>
-</view>
+
 
 
 
@@ -127,4 +175,4 @@
 </view>
 <view class="text-gray text-sm text-center margin-sm">
   津地产提供技术支持
-</view>
+</view> -->

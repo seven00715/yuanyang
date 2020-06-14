@@ -4,6 +4,24 @@ const app = getApp()
 
 Page({
   data: {
+    projectList:[
+      {name:'全部',code:'01'},
+      { name: '远洋悦·光年', code: '02' },
+      { name: '远洋·未来城', code: '03' },
+      { name: '远洋·简宫', code: '04' },
+      { name: '远洋·万和四季', code: '05' },
+      { name: '远洋·鲲栖符', code: '06' },
+      {name:'远洋·天著春秋',code:'07'},
+      {name:'更多',code:'08'},
+    ],
+    clickCode:'01',
+    projectInfo:[
+      { time: '2020-05-27', title: '远洋未来城项目信息', progress: ['B5#一层墙柱模板安排','C1#地下室顶层钢筋完成80%']},
+      { time: '2020-05-27', title: '远洋悦·光年项目信息', progress: ['C1#一段一层墙柱墙柱钢筋绑扎', 'C2#二段一层钢筋绑扎']},
+      { time: '2020-05-27', title: '远洋·万和司机项目信息', progress: ['A5#地下室顶板模板安装', 'A3#地下室钢筋绑扎30%']},
+      { time: '2020-05-27', title: '远洋·光年项目信息', progress: ['C2#一段一层墙柱墙柱钢筋绑扎', 'C2#一段一层钢筋绑扎']},
+      { time: '2020-05-27', title: '远洋·光年项目信息', progress: ['C2#一段一层墙柱墙柱钢筋绑扎', 'C2#一段一层钢筋绑扎']},
+    ],
     page: {
       searchCount: false,
       current: 1,
@@ -172,5 +190,13 @@ Page({
       ['page.current']: 1
     })
     this.goodsPage()
+  },
+  clickStyle(item){
+    console.log(item.currentTarget.dataset.index.code)
+    var code = item.currentTarget.dataset.index.code
+    this.setData({
+      clickCode: code
+    })
+    
   }
 })
