@@ -56,13 +56,16 @@
   </view>
   <view class="project">
     <view class="project-list" wx:for="{{projectInfo}}" wx:key="index">
-    <view class="time">{{item.time}}</view>
+    <view class="time">{{item.createTime}}</view>
     <view class="project-content">
-      <text class="project-title">{{item.title}}</text>
-      <text class="project-progress" wx:for="{{item.progress}}" wx:key="index">{{item}}</text>
+      <text class="project-name">{{item.title}}</text>
+      <view class="project-progress"> 
+      <view class="project-progress-item" wx:for="{{item.abstractText}}" wx:key="index">{{item}}</view>
+      </view>
+      
     </view>
 
-  </view>
+  </view> 
   </view>
   
 </view>

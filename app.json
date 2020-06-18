@@ -32,7 +32,10 @@
     "pages/groupon/groupon-user-detail/index",
     "pages/groupon/groupon-order-confirm/index",
     "pages/live/room-list/index",
-    "pages/livePlayer2/livePlayer"
+    "pages/livePlayer2/livePlayer",
+    "pages/activity/activity-list/index",
+    "pages/activity/activity-signUp/index",
+    "pages/activity/activity-invite/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
