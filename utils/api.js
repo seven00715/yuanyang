@@ -126,6 +126,9 @@ module.exports = {
   fetchNewsList: (data) => {// 0:资讯，1:交付展示，2:工程进度
     return request('/mall/api/ma/yyfreshnews/page', 'get', data, false)
   },
+  fetchNewsTypes: (id) => {// 工程进度类目(id)
+    return request('/mall/api/ma/yyproject/'+id, 'get', false)
+  },
   goodsPage: (data) => {//商品列表
     return request('/mall/api/ma/goodsspu/page', 'get', data, false)
   },
