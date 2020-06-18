@@ -1,67 +1,3 @@
-/**index.wxss**/
-
-.info-waper {
-  background: var(--white);
-  margin-top: 30rpx;
-  padding-left: 36rpx;
-  padding-right: 24rpx;
-  font-weight: 500;
-  font-size: 30rpx;
-  color: #000;
-}
-
-.avatar-wraper {
-  border-bottom: 0.5rpx solid #eee;
-}
-
-.row-wraper {
-  padding: 0;
-}
-
-.avatar-wraper .cu-avatar {
-  margin: 24rpx 0rpx;
-  width: 140rpx;
-  height: 140rpx;
-  vertical-align: middle;
-}
-
-.cuIcon-right::before {
-  color: #c6c6c6;
-  margin-left: 8rpx;
-  font-size: 30rpx;
-}
-
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
-}
-
-/* 昵称 */
-
-.info-name {
-  padding: 33rpx 0;
-}
-
-.info-right {
-  font-size: 27rpx;
-  color: #c6c6c6;
-}
 
 /* 我参与的活动 */
 
@@ -70,12 +6,15 @@
   border-bottom: 0.5 solid #c6c6c6;
   margin-bottom: 33px;
 }
-
-.active-list-item {
-  display: flex;
+.active-list{
   background-color: var(--white);
-  padding: 17rpx 22rpx 20rpx 21rpx;
+  padding-left: 32rpx;
+  padding-right: 64rpx;
 }
+.active-list-item {
+  padding: 17rpx 0 20rpx 0;
+}
+
 
 .active-img {
   width: 184rpx;
@@ -87,6 +26,7 @@
 
 .active-right {
   width: 483rpx;
+  height: 129rpx;
 }
 
 .active-right-top {

@@ -1,28 +1,18 @@
 <view>
   <!-- 活动列表 -->
   <view class="active-list" wx:for="{{goodsListHot}}">
-    <view class="active-list-item">
-      <image class="active-img" src="{{item.imgUrl[0]}}" />
-      <view class="active-right flex-column-between-start">
-        <view class="active-right-top">远洋宠粉!神秘大礼欢享来袭!</view>
-        <view class="active-right-bottom">
-          <view class="active-time">活动截止: 2020年101月30日 </view>
+    <view class="flex-column-start-start item-wraper"> 
+      <view class="active-list-item flex-row-start-start">
+        <image class="active-img" src="{{item.imgUrl[0]}}" />
+        <view class="active-right flex-column-between-start">
+          <view class="active-right-top ac-title">{{item.abstractText}}</view>
+          <view class="active-right-bottom">
+            <view class="active-time ac-time">{{item.createTime}} </view>
+          </view>
+        </view>
         </view>
       </view>
+      <view class="line">
     </view>
   </view>
 </view>
-
-
-
-<!-- <view class="cu-list menu-avatar">
-<view class="cu-item">
-<view class="cu-avatar round lg" style="background-image:url({{wxUser.headimgUrl}})">{{!wxUser.headimgUrl ? '头' : ''}}</view>
-<view class="content">
-<view class="text-black" wx:if="{{wxUser.nickName}}">{{wxUser.nickName}}</view>
-<button class="cu-btn round sm line-red" open-type="getUserInfo" bind:getuserinfo="agreeGetUser" lang="zh_CN">
-{{!wxUser.nickName ? '成为会员' : '更新昵称'}}
-</button>
-</view>
-<view class='action'>
-<view class="text-xl margin-top" bindtap="settings">
