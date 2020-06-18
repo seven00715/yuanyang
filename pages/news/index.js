@@ -27,7 +27,7 @@ Page({
   },
   fetchNewsList() {
     app.api.fetchNewsList({
-      type: 1,
+      type: 2,
     })
       .then(res => {
         let goodsListHot = res.data.records

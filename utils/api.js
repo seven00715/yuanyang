@@ -25,7 +25,7 @@ const request = (url, method, data, showLoading) => {
               title: '提示',
               content: res.data.msg + '',
               success() {
-                
+
               },
               complete(){
                 if(res.data.code == 60001){
@@ -123,7 +123,7 @@ module.exports = {
   fetchAcList: (data) => {//商品列表
     return request('/mall/api//ma/yyactivity/page', 'get', data, false)
   },
-  fetchNewsList: (data) => {//商品列表
+  fetchNewsList: (data) => {// 0:资讯，1:交付展示，2:工程进度
     return request('/mall/api/ma/yyfreshnews/page', 'get', data, false)
   },
   goodsPage: (data) => {//商品列表
