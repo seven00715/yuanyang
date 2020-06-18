@@ -21,13 +21,26 @@ Page({
   },
   loadData() {
     this.fetchNewsList()
+    this.fetchTypeList()
     // this.goodsNew()
     // this.goodsHot()
     // this.goodsPage()
   },
+  
+  fetchTypeList() {
+      app.api.fetchTypeList({
+    })
+      .then(res => {
+        let goodsListHot = res.data.records
+        this.setData({
+          goodsListHot: goodsListHot
+        })
+      })
+  },
   fetchNewsList() {
     app.api.fetchNewsList({
       type: 2,
+      projectType: "1"
     })
       .then(res => {
         let goodsListHot = res.data.records

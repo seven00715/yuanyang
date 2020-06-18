@@ -120,8 +120,15 @@ module.exports = {
     return request('/mall/api/ma/goodscategory/tree' , 'get', data, true)
   },
   //---------------
-  fetchAcList: (data) => {//商品列表
+ 
+  fetchTypeList: (data) => {// type
+    return request('/mall/api/ma/yyproject/page', 'get', data, false)
+  },
+  fetchAcList: (data) => {//活动列表
     return request('/mall/api//ma/yyactivity/page', 'get', data, false)
+  },
+  fetchAcDetail: (id) => {//活动详情
+    return request(`/mall/api//ma/yyactivity/detail/${id}`, 'get', {}, false)
   },
   fetchNewsList: (data) => {// 0:资讯，1:交付展示，2:工程进度
     return request('/mall/api/ma/yyfreshnews/page', 'get', data, false)

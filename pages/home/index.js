@@ -29,9 +29,10 @@ Page({
     })
   },
   loadData(){
-    this.fetchAcList()
-    this.swiperGet()
-    this.fetchNewsList()
+    this.fetchAcDetail()
+    // this.fetchAcList()
+    // this.swiperGet()
+    // this.fetchNewsList()
     // this.goodsNew()
     // this.goodsHot()
     // this.goodsPage()
@@ -92,6 +93,20 @@ Page({
         this.setData({
           goodsListNew: goodsListNew
         })
+      })
+  },
+
+  
+
+  
+    //  活动详情
+  fetchAcDetail() {
+    app.api.fetchAcDetail('1272159987784531970')
+      .then(res => {
+        // let goodsListHot = res.data.records
+        // this.setData({
+        //   goodsListHot: goodsListHot
+        // })
       })
   },
   //  活动接口
