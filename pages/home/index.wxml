@@ -94,7 +94,7 @@
           </view>
           <view class="flex-column-between-start btn-wraper">
             <view></view>
-            <button>马上参与</button>
+            <button bindtap="jumpToactive">马上参与</button>
           </view>
        </view>
     </view>
