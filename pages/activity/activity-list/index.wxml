@@ -1,2 +1,18 @@
-<!--pages/activity/activity-list/index.wxml-->
-<text>pages/activity/activity-list/index.wxml</text>
+<view>
+  <!-- 活动列表 -->
+  <view class="active-list" wx:for="{{activeList}}">
+    <view class="flex-column-start-start item-wraper"> 
+      <view class="active-list-item flex-row-start-start">
+        <image class="active-img" src="{{item.img[0]}}" />
+        <view class="active-right flex-column-between-start">
+          <view class="active-right-top ac-title">{{item.title}}</view>
+          <view class="active-right-bottom">
+            <view class="active-time ac-time">{{item.createTime}} </view>
+          </view>
+        </view>
+        </view>
+      </view>
+      <view class="line">
+    </view>
+  </view>
+</view>
