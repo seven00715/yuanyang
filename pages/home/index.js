@@ -14,7 +14,8 @@ Page({
     newsList: [],
     swiperData: [],
     noticeData: [],
-    projectList: []
+    projectList: [],
+    activeList: []
   },
   onLoad() {
     app.initPage()
@@ -127,9 +128,9 @@ Page({
      current:1, size:20
     })
       .then(res => {
-        let goodsListHot = res.data.records
+        let activeList = res.data.records.slice(0,2)
         this.setData({
-          goodsListHot: goodsListHot
+          activeList: activeList
         })
       })
   },

@@ -1,18 +1,26 @@
-<view>
+<view class="active-container">
   <!-- 活动列表 -->
-  <view class="active-list" wx:for="{{activeList}}">
-    <view class="flex-column-start-start item-wraper"> 
-      <view class="active-list-item flex-row-start-start">
-        <image class="active-img" src="{{item.img[0]}}" />
-        <view class="active-right flex-column-between-start">
-          <view class="active-right-top ac-title">{{item.title}}</view>
-          <view class="active-right-bottom">
-            <view class="active-time ac-time">{{item.createTime}} </view>
+  <view class="bg-hot">
+    <view class="active-wraper" wx:for="{{activeList}}" wx:key="id" data-id="item.id">
+      <view class='active-item'>
+        <image src="{{item.img[0]}}"></image>
+        <view class="flex-row-between-start bom-waper">
+          <view class="ac-info">
+            <view class="ac-title flex-row-start">
+              <view class="icon">
+                <text wx:if="{{item.isNew}}">新</text>
+              </view> {{item.title}}
+            </view>
+            <view class="as-time">
+              活动截止：{{item.endTime}}
+            </view>
+          </view>
+          <view class="flex-column-between-start btn-wraper">
+            <view></view>
+            <button bindtap="jumpToactive" data-item="{{item}}">马上参与</button>
           </view>
         </view>
-        </view>
       </view>
-      <view class="line">
     </view>
   </view>
 </view>

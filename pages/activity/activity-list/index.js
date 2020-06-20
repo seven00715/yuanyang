@@ -50,6 +50,13 @@ Page({
         })
       })
   },
+
+  jumpToactive(e){
+    const item = e.target.dataset.item
+      wx.navigateTo({
+        url: `/pages/activity/activity-invite/index?id=${item.id}&type=${item.type}`
+      })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
