@@ -1,6 +1,6 @@
 <view>
   <!-- 活动列表 -->
-  <view class="active-list" wx:for="{{goodsListHot}}">
+  <view class="active-list" wx:for="{{newsList}}">
     <view class="flex-column-start-start item-wraper"> 
       <view class="active-list-item flex-row-start-start">
         <image class="active-img" src="{{item.imgUrl[0]}}" />

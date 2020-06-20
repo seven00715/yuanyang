@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goodsListHot: [],
+    newsList: [],
   },
 
   /**
@@ -31,9 +31,9 @@ Page({
       app.api.fetchTypeList({
     })
       .then(res => {
-        let goodsListHot = res.data.records
+        let newsList = res.data.records
         this.setData({
-          goodsListHot: goodsListHot
+          newsList: newsList
         })
       })
   },
@@ -43,9 +43,9 @@ Page({
       type: 0
     })
       .then(res => {
-        let goodsListHot = res.data.records
+        let newsList = res.data.records
         this.setData({
-          goodsListHot: goodsListHot
+          newsList: newsList
         })
       })
   },

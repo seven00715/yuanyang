@@ -52,19 +52,19 @@
 
     <view class='wrapper-list bg-white radius row-wraper  '>
         <block>
-          <navigator hover-class="none" url='/pages/goods/goods-detail/index?id={{goodsListHot[0].id}}' class='item'>
-            <view class='img-box'  wx-if="{{goodsListHot[0]}}" >
-              <image src="{{goodsListHot[0].imgUrl[0] || '/public/img/no_pic.png'}}"></image>
+          <navigator hover-class="none" url='/pages/goods/goods-detail/index?id={{newsList[0].id}}' class='item'>
+            <view class='img-box'  wx-if="{{newsList[0]}}" >
+              <image src="{{newsList[0].imgUrl[0] || '/public/img/no_pic.png'}}"></image>
             </view>
-            <view class='text-cut margin-xs'>{{goodsListHot[0].title}}</view>
+            <view class='text-cut margin-xs'>{{newsList[0].title}}</view>
           </navigator>
         </block>
         <block>
-          <navigator hover-class="none" wx-if="{{goodsListHot[1]}}"  url='/pages/goods/goods-detail/index?id={{goodsListHot[1].id}}' class='item'>
+          <navigator hover-class="none" wx-if="{{newsList[1]}}"  url='/pages/goods/goods-detail/index?id={{newsList[1].id}}' class='item'>
             <view class='img-box'  >
-              <image src="{{goodsListHot[1].imgUrl[0]||'/public/img/no_pic.png'}}"></image>
+              <image src="{{newsList[1].imgUrl[0]||'/public/img/no_pic.png'}}"></image>
             </view>
-            <view class='text-cut margin-xs'>{{goodsListHot[0].title}}</view>
+            <view class='text-cut margin-xs'>{{newsList[0].title}}</view>
           </navigator>
         </block>
     </view>
@@ -112,19 +112,19 @@
     </view>
     <view class='wrapper-list bg-white radius row-wraper consite-wraper flex-row-between-start '>
         <block>
-          <navigator hover-class="none" url='/pages/goods/goods-detail/index?id={{goodsListHot[0].id}}' class='item'>
+          <navigator hover-class="none" url='/pages/goods/goods-detail/index?id={{projectList[0].id}}' class='item'>
             <view class='img-box'>
-              <image src="{{goodsListHot[0].picUrls[0] ? goodsListHot[0].picUrls[0] : '/public/img/no_pic.png'}}"></image>
+              <image src="{{projectList[0].imgUrl[0] ? projectList[0].imgUrl[0] : '/public/img/no_pic.png'}}"></image>
             </view>
-            <view class='text-cut margin-xs'>天津远洋 | {{goodsListHot[0].name}}</view>
+            <view class='text-cut margin-xs'> {{projectList[0].title}}</view>
           </navigator>
         </block>
         <block>
-          <navigator hover-class="none" url='/pages/goods/goods-detail/index?id={{goodsListHot[1].id}}' class='item'>
+          <navigator hover-class="none" url='/pages/goods/goods-detail/index?id={{projectList[1].id}}' class='item'>
             <view class='img-box'>
-              <image src="{{goodsListHot[1].picUrls[0] ? goodsListHot[1].picUrls[0] : '/public/img/no_pic.png'}}"></image>
+              <image src="{{projectList[1].imgUrl[0] ? projectList[1].imgUrl[0] : '/public/img/no_pic.png'}}"></image>
             </view>
-            <view class='text-cut margin-xs'>天津远洋 | {{goodsListHot[1].name}}</view>
+            <view class='text-cut margin-xs'> {{projectList[1].title}}</view>
           </navigator>
         </block>
     </view>

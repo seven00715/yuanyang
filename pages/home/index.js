@@ -11,7 +11,7 @@ Page({
     loadmore: true,
     goodsList: [],
     goodsListNew: [],
-    goodsListHot: [],
+    newsList: [],
     swiperData: [],
     noticeData: [],
     projectList: []
@@ -75,9 +75,9 @@ Page({
       type: 0,
     })
       .then(res => {
-        let goodsListHot = res.data.records
+        let newsList = res.data.records
         this.setData({
-          goodsListHot: goodsListHot
+          newsList: newsList
         })
       })
   },
