@@ -127,8 +127,8 @@ module.exports = {
   fetchAcList: (data) => {//活动列表
     return request('/mall/api//ma/yyactivity/page', 'get', data, false)
   },
-  fetchAcDetail: (id) => {//活动详情
-    return request(`/mall/api//ma/yyactivity/detail/${id}`, 'get', {}, false)
+  fetchAcDetail: (id,data) => {//活动详情
+    return request(`/mall/api//ma/yyactivity/detail/${id}`, 'get', data, false)
   },
   fetchNewsList: (data) => {// 0:资讯，1:交付展示，2:工程进度
     return request('/mall/api/ma/yyfreshnews/page', 'get', data, false)

@@ -1,18 +1,18 @@
-// pages/activity/activity-invite/index.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    activeInfo:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.fetchAcDetail()
   },
 
   /**
@@ -61,6 +61,13 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+  },
+  async fetchAcDetail(){
+    let {data} = await app.api.fetchAcDetail(1272159987784531970,{type:2})
+    data.prizes.push(...data.prizes)
+    data.activityRule=data.activityRule.split('\n')
+    this.setData({
+      activeInfo:data
+    })
   }
 })

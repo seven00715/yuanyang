@@ -186,7 +186,7 @@ Page({
   },
   jumpToactive(){
     wx.navigateTo({
-      url: '/pages/activity/activity-signUp/index'
+      url: '/pages/activity/activity-invite/index'
     })
   }
 })
