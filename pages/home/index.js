@@ -112,16 +112,16 @@ Page({
   
 
   
-    //  活动详情
-  fetchAcDetail() {
-    app.api.fetchAcDetail('1272159987784531970')
-      .then(res => {
-        // let goodsListHot = res.data.records
-        // this.setData({
-        //   goodsListHot: goodsListHot
-        // })
-      })
-  },
+  //   //  活动详情
+  // fetchAcDetail() {
+  //   app.api.fetchAcDetail('1272159987784531970')
+  //     .then(res => {
+  //       // let goodsListHot = res.data.records
+  //       // this.setData({
+  //       //   goodsListHot: goodsListHot
+  //       // })
+  //     })
+  // },
   //  活动接口
   fetchAcList() {
     app.api.fetchAcList({

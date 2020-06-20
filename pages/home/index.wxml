@@ -32,7 +32,7 @@
       </navigator>
     </view>
     <view class="cu-item">
-      <navigator url="/pages/user/user-points-record/index" hover-class="none">
+      <navigator url="/pages/delivery/delivery-type/index" hover-class="none">
         <view class="lg text-yellow2 iconfont iconshow"></view>
         <text class="text-black">交付展示</text>
       </navigator>

@@ -99,6 +99,20 @@
 					"id": -1,
 					"name": "pages/user/user-center/index",
 					"pathName": "pages/user/user-center/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/home/index",
+					"pathName": "pages/home/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/delivery/delivery-type/index",
+					"pathName": "pages/delivery/delivery-type/index",
 					"scene": null
 				}
 			]
