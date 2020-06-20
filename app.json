@@ -35,7 +35,8 @@
     "pages/livePlayer2/livePlayer",
     "pages/activity/activity-list/index",
     "pages/activity/activity-signUp/index",
-    "pages/activity/activity-invite/index"
+    "pages/activity/activity-invite/index",
+    "pages/project/project-list/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

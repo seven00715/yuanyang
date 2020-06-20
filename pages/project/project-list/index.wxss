@@ -1,0 +1,88 @@
+/* .cu-bar{
+  min-height: 80rpx!important
+}
+.cuIcon-triangledownfill{
+  margin-top: -22rpx
+} */
+
+.page-body {
+  background-color: #ffffff;
+}
+.project-title {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20rpx 16rpx;
+  padding-bottom: 38rpx;
+  /* justify-content: space-around; */
+  border-top: 1rpx solid #f2f2f3;
+  border-bottom: 1rpx solid #f2f2f3;
+}
+
+.project-title .projectLabel {
+  /* flex:23%; */
+  width: 160rpx;
+  border-radius: 20rpx;
+  border: none;
+  line-height: 46rpx;
+  font-size: 20rpx;
+  margin-left: 10rpx;
+  margin-right: 0rpx;
+  margin-top: 20rpx;
+  outline: none;
+  padding: 0;
+  background-color: #f3f3f3;
+}
+button::after {
+ border: none;
+}
+.project-title .clickStyle{
+  color: #217ace;
+  background-color: #e9effc;
+
+}
+.project{
+  padding: 16rpx 43rpx 43rpx;
+}
+
+.time {
+  font-size: 20rpx;
+  color: #0E5D88;
+  font-weight: 500;
+  line-height: 20rpx;
+}
+.project-content{
+  display: flex;
+  flex-direction: column;
+  margin-top: 43rpx;
+  font-size: 26rpx;
+  color:#9e9f9f;
+  margin-left: 2rpx;
+}
+.project-list::before{
+  content: '';
+  position: relative;
+  top: 90rpx;
+  /* left: 2rpx; */
+  display: block;
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  border: 4rpx solid #0f86c8;
+}
+
+.project-name {
+  font-size: 30rpx;
+  color: #000000;
+  font-weight: 600;
+  padding-left:45rpx;
+  line-height: 30rpx;
+}
+.project-progress{
+ border-left: 1rpx solid #e8e8e9;
+ padding-left:35rpx;
+ padding-top: 24rpx;
+ margin-left: 8rpx;
+ margin-bottom: 26rpx;
+}

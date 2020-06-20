@@ -49,7 +49,7 @@
         更多<text class='cuIcon-right'></text>
       </navigator>
     </view>
-    
+
     <view class='wrapper-list bg-white radius row-wraper  '>
         <block>
           <navigator hover-class="none" url='/pages/goods/goods-detail/index?id={{goodsListHot[0].id}}' class='item'>
@@ -75,7 +75,7 @@
       <view class='action text-bold text-black'>
          热门活动
       </view>
-      <navigator hover-class="none" url='/pages/goods/goods-list/index?type=2' class='action'>
+      <navigator hover-class="none" url='/pages/activity/activity-list/index' class='action'>
         更多<text class='cuIcon-right'></text>
       </navigator>
     </view>
@@ -106,7 +106,7 @@
       <view class='action text-bold text-black'>
         工地展示
       </view>
-      <navigator hover-class="none" url='/pages/goods/goods-list/index?type=2' class='action'>
+      <navigator hover-class="none"  url='/pages/project/project-list/index' class='action'>
         更多<text class='cuIcon-right'></text>
       </navigator>
     </view>

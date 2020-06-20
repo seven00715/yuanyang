@@ -13,7 +13,8 @@ Page({
     goodsListNew: [],
     goodsListHot: [],
     swiperData: [],
-    noticeData: []
+    noticeData: [],
+    projectList: []
   },
   onLoad() {
     app.initPage()
@@ -29,10 +30,10 @@ Page({
     })
   },
   loadData(){
-    this.fetchAcDetail()
     this.fetchAcList()
     this.swiperGet()
     this.fetchNewsList()
+    this.fetchProjectList()
     // this.goodsNew()
     // this.goodsHot()
     // this.goodsPage()
@@ -71,12 +72,23 @@ Page({
   
   fetchNewsList() {
     app.api.fetchNewsList({
-      type: 1,
+      type: 0,
     })
       .then(res => {
         let goodsListHot = res.data.records
         this.setData({
           goodsListHot: goodsListHot
+        })
+      })
+  },
+  fetchProjectList() {
+    app.api.fetchNewsList({
+      type: 2,
+    })
+      .then(res => {
+        let projectList = res.data.records
+        this.setData({
+          projectList: projectList
         })
       })
   },
