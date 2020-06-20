@@ -78,6 +78,13 @@
 					"id": -1,
 					"name": "pages/goods/goods-list/index",
 					"pathName": "pages/goods/goods-list/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/activity/activity-signUp/index",
+					"pathName": "pages/activity/activity-signUp/index",
 					"scene": null
 				}
 			]

@@ -183,5 +183,10 @@ Page({
         url: page
       })
     }
+  },
+  jumpToactive(){
+    wx.navigateTo({
+      url: '/pages/activity/activity-signUp/index'
+    })
   }
 })

@@ -1,2 +1,37 @@
-<!--pages/activity/activity-signUp/index.wxml-->
-<text>pages/activity/activity-signUp/index.wxml</text>
+<!-- 报名活动页面 -->
+<view class="active-sign">
+  <!-- 活动主图 -->
+  <image src="{{activeInfo.img[0]}}"></image>
+  <!-- 主要文字(标题) -->
+  <view class="active-title">{{activeInfo.content}}</view>
+  <!-- 奖品 -->
+  <view class="prize-outside">
+    <view class="prize-inside">
+      <view wx:for="{{activeInfo.prizes}}" wx:key="index" class="prize-inside-item">
+        <image src="{{ item.imgUrl }}"></image>
+        <view class="prize-inside-item-name">{{ item.name }}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 活动步骤 -->
+  <view class="active-step">
+    <view class="active-step-title">
+      <text>1.预约报名</text>
+      <text>2.抽取大奖</text>
+    </view>
+    <view class="active-step-content">
+      <view  class="h4">快来报名参加抽奖活动</view>
+      <view class="p">报名时间: {{activeInfo.startTime}} - {{activeInfo.endTime}}</view>
+      <view class="p">活动城市: {{activeInfo.activityCity}}</view>
+      <image 
+      src="../../../assets/signactive-03.png" class="signbut"></image>
+    </view>
+  </view>
+  <!-- 活动规则 -->
+  <view class="active-rule">
+  <view class="rule-title"> 报名活动规则 </view>
+  <view wx:for="{{activeInfo.activityRule}}" wx:key="index" class="rule-content">
+  {{ item}}
+  </view>
+  </view>
+</view>
