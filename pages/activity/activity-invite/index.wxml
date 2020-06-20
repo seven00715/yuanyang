@@ -4,34 +4,22 @@
   <image src="{{activeInfo.img[0]}}"></image>
   <!-- 主要文字(标题) -->
   <view class="active-title">{{activeInfo.content}}</view>
-  <!-- 奖品 -->
-  <view class="prize-outside">
-    <view class="prize-inside">
-      <view wx:for="{{activeInfo.prizes}}" wx:key="index" class="prize-inside-item">
-        <image src="{{ item.imgUrl }}"></image>
-        <view class="prize-inside-item-name">{{ item.name }}</view>
-      </view>
-    </view>
-  </view>
   <!-- 活动步骤 -->
   <view class="active-step">
-    <view class="active-step-title">
-      <text>1.预约报名</text>
-      <text>2.抽取大奖</text>
+    <view class="invite-people">
+      <image class="invite-people-bg" src="../../../assets/inviter-bg.png" lazy-load="false"></image>
+      <image class="invite-people-ava" src="{{activeInfo.img[1]?activeInfo.img[1]: '../../../assets/inviter-ava.png'}}" lazy-load="false"></image>
     </view>
-    <view class="active-step-content">
-      <view  class="h4">快来报名参加抽奖活动</view>
-      <view class="p">报名时间: {{activeInfo.startTime}} - {{activeInfo.endTime}}</view>
-      <view class="p">活动城市: {{activeInfo.activityCity}}</view>
-      <image 
-      src="../../../assets/signactive-03.png" class="signbut"></image>
+    <!-- 被邀请人列表 -->
+    <view class="invitee">
+      <image wx:for="{{5}}" wx:key="index" class="invitee-img" src="../../../assets/invitee-img.png"></image>
     </view>
+    <rich-text class="uninviter-number" type="p">还差{{activeInfo.inviteNum}}人达成</rich-text>
+    <image src="../../../assets/invite-button.png" class="signbut"></image>
   </view>
   <!-- 活动规则 -->
   <view class="active-rule">
-  <view class="rule-title"> 报名活动规则 </view>
-  <view wx:for="{{activeInfo.activityRule}}" wx:key="index" class="rule-content">
-  {{ item}}
-  </view>
+    <view class="rule-title">分享活动规则</view>
+    <view wx:for="{{activeInfo.activityRule}}" wx:key="index" class="rule-content">{{ item}}</view>
   </view>
 </view>
