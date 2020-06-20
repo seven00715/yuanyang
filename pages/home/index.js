@@ -30,9 +30,9 @@ Page({
   },
   loadData(){
     this.fetchAcDetail()
-    // this.fetchAcList()
-    // this.swiperGet()
-    // this.fetchNewsList()
+    this.fetchAcList()
+    this.swiperGet()
+    this.fetchNewsList()
     // this.goodsNew()
     // this.goodsHot()
     // this.goodsPage()

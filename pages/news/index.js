@@ -21,7 +21,7 @@ Page({
   },
   loadData() {
     this.fetchNewsList()
-    this.fetchTypeList()
+    // this.fetchTypeList()
     // this.goodsNew()
     // this.goodsHot()
     // this.goodsPage()
@@ -37,10 +37,10 @@ Page({
         })
       })
   },
+  // 资讯
   fetchNewsList() {
     app.api.fetchNewsList({
-      type: 2,
-      projectType: "1"
+      type: 0
     })
       .then(res => {
         let goodsListHot = res.data.records
