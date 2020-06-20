@@ -5,7 +5,8 @@ Page({
   data: {
     wxUser: null,
     userInfo: null,
-    orderCountAll: []
+    orderCountAll: [],
+    activeList: []
   },
   onShow(){
     //更新tabbar购物车数量
@@ -19,7 +20,8 @@ Page({
       wxUser: wxUser
     })
     this.userInfoGet()
-    this.orderCountAll()
+    this.fetchNewsList()
+    // this.orderCountAll()
   },
   onLoad(){
   },
@@ -31,6 +33,27 @@ Page({
       success: function (res) {
         console.log(res.authSetting)
       }
+    })
+  },
+  // 活动列表
+  fetchNewsList() {
+    app.api.fetchAcList({
+      current: 1,
+      size: 20
+    })
+      .then(res => {
+        let activeList = res.data.records.slice(0,2)
+        this.setData({
+          activeList: activeList
+        })
+      })
+  },
+
+  jumpToactive(e) {
+    console.log('center e', e)
+    const item = e.target.dataset.item
+    wx.navigateTo({
+      url: `/pages/activity/activity-invite/index?id=${item.id}&type=${item.type}`
     })
   },
   agreeGetUser(e) {

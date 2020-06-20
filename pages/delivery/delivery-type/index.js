@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    activeList: [],
+    projectList: [],
   },
 
   /**
@@ -20,8 +20,8 @@ Page({
       })
   },
   loadData() {
-    this.fetchNewsList()
-    // this.fetchTypeList()
+    // this.fetchNewsList()
+    this.fetchTypeList()
     // this.goodsNew()
     // this.goodsHot()
     // this.goodsPage()
@@ -31,30 +31,10 @@ Page({
       app.api.fetchTypeList({
     })
       .then(res => {
-        let goodsListHot = res.data.records
+        let projectList = res.data.records
         this.setData({
-          goodsListHot: goodsListHot
+          projectList: projectList
         })
-      })
-  },
-  // 活动列表
-  fetchNewsList() {
-    app.api.fetchAcList({
-      current: 1,
-       size: 20
-    })
-      .then(res => {
-        let activeList = res.data.records
-        this.setData({
-          activeList: activeList
-        })
-      })
-  },
-
-  jumpToactive(e){
-    const item = e.target.dataset.item
-      wx.navigateTo({
-        url: `/pages/activity/activity-invite/index?id=${item.id}&type=${item.type}`
       })
   },
   /**

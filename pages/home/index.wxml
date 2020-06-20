@@ -1,4 +1,3 @@
-
 <view class="margin-top-bar">
   <swiper wx:if="{{swiperData.length > 0}}" class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
     <swiper-item wx:for="{{swiperData}}" wx:key="index" bindtap="jumpPage" data-page="{{item.page}}">
@@ -33,7 +32,7 @@
       </navigator>
     </view>
     <view class="cu-item">
-      <navigator url="/pages/user/user-points-record/index" hover-class="none">
+      <navigator url="/pages/delivery/delivery-type/index" hover-class="none">
         <view class="lg text-yellow2 iconfont iconshow"></view>
         <text class="text-black">交付展示</text>
       </navigator>
@@ -43,61 +42,65 @@
   <view class='wrapper bg-hot brand-wrapper'>
     <view class="cu-bar text-white">
       <view class='action text-bold text-black'>
-         品牌资讯
+        品牌资讯
       </view>
       <navigator hover-class="none" url='/pages/news/index' class='action'>
-        更多<text class='cuIcon-right'></text>
+        更多
+        <text class='cuIcon-right'></text>
       </navigator>
     </view>
 
     <view class='wrapper-list bg-white radius row-wraper  '>
-        <block>
-          <navigator hover-class="none" url='/pages/goods/goods-detail/index?id={{goodsListHot[0].id}}' class='item'>
-            <view class='img-box'  wx-if="{{goodsListHot[0]}}" >
-              <image src="{{goodsListHot[0].imgUrl[0] || '/public/img/no_pic.png'}}"></image>
-            </view>
-            <view class='text-cut margin-xs'>{{goodsListHot[0].title}}</view>
-          </navigator>
-        </block>
-        <block>
-          <navigator hover-class="none" wx-if="{{goodsListHot[1]}}"  url='/pages/goods/goods-detail/index?id={{goodsListHot[1].id}}' class='item'>
-            <view class='img-box'  >
-              <image src="{{goodsListHot[1].imgUrl[0]||'/public/img/no_pic.png'}}"></image>
-            </view>
-            <view class='text-cut margin-xs'>{{goodsListHot[0].title}}</view>
-          </navigator>
-        </block>
+      <block>
+        <navigator hover-class="none" url='/pages/goods/goods-detail/index?id={{newsList[0].id}}' class='item'>
+          <view class='img-box' wx-if="{{newsList[0]}}">
+            <image src="{{newsList[0].imgUrl[0] || '/public/img/no_pic.png'}}"></image>
+          </view>
+          <view class='text-cut margin-xs'>{{newsList[0].title}}</view>
+        </navigator>
+      </block>
+      <block>
+        <navigator hover-class="none" wx-if="{{newsList[1]}}" url='/pages/goods/goods-detail/index?id={{newsList[1].id}}' class='item'>
+          <view class='img-box'>
+            <image src="{{newsList[1].imgUrl[0]||'/public/img/no_pic.png'}}"></image>
+          </view>
+          <view class='text-cut margin-xs'>{{newsList[0].title}}</view>
+        </navigator>
+      </block>
     </view>
   </view>
 
-<view class='wrapper bg-hot'>
+  <view class='wrapper bg-hot'>
     <view class="cu-bar text-white">
       <view class='action text-bold text-black'>
-         热门活动
+        热门活动
       </view>
       <navigator hover-class="none" url='/pages/activity/activity-list/index' class='action'>
-        更多<text class='cuIcon-right'></text>
+        更多
+        <text class='cuIcon-right'></text>
       </navigator>
     </view>
 
-    <view class="active-wraper">
-     <view class='active-item'>
-       <image src="/public/img/car.jpg"></image>
-       <view class="flex-row-between-start bom-waper">
+    <view class="active-wraper" wx:for="{{activeList}}" wx:key="id" data-id="item.id">
+      <view class='active-item'>
+        <image src="{{item.img[0]}}"></image>
+        <view class="flex-row-between-start bom-waper">
           <view class="ac-info">
             <view class="ac-title flex-row-start">
-              <view class="icon">新</view> 远洋宠粉！神秘大礼欢享来袭！
+              <view class="icon">
+                <text wx:if="{{item.isNew}}">新</text>
+              </view> {{item.title}}
             </view>
             <view class="as-time">
-                活动截止：2020年04月30日
+              活动截止：{{item.endTime}}
             </view>
           </view>
           <view class="flex-column-between-start btn-wraper">
             <view></view>
-            <button bindtap="jumpToactive">马上参与</button>
+            <button bindtap="jumpToactive" data-item="{{item}}">马上参与</button>
           </view>
-       </view>
-    </view>
+        </view>
+      </view>
     </view>
   </view>
 
@@ -106,27 +109,28 @@
       <view class='action text-bold text-black'>
         工地展示
       </view>
-      <navigator hover-class="none"  url='/pages/project/project-list/index' class='action'>
-        更多<text class='cuIcon-right'></text>
+      <navigator hover-class="none" url='/pages/project/project-list/index' class='action'>
+        更多
+        <text class='cuIcon-right'></text>
       </navigator>
     </view>
     <view class='wrapper-list bg-white radius row-wraper consite-wraper flex-row-between-start '>
-        <block>
-          <navigator hover-class="none" url='/pages/goods/goods-detail/index?id={{goodsListHot[0].id}}' class='item'>
-            <view class='img-box'>
-              <image src="{{goodsListHot[0].picUrls[0] ? goodsListHot[0].picUrls[0] : '/public/img/no_pic.png'}}"></image>
-            </view>
-            <view class='text-cut margin-xs'>天津远洋 | {{goodsListHot[0].name}}</view>
-          </navigator>
-        </block>
-        <block>
-          <navigator hover-class="none" url='/pages/goods/goods-detail/index?id={{goodsListHot[1].id}}' class='item'>
-            <view class='img-box'>
-              <image src="{{goodsListHot[1].picUrls[0] ? goodsListHot[1].picUrls[0] : '/public/img/no_pic.png'}}"></image>
-            </view>
-            <view class='text-cut margin-xs'>天津远洋 | {{goodsListHot[1].name}}</view>
-          </navigator>
-        </block>
+      <block>
+        <navigator hover-class="none" url='/pages/goods/goods-detail/index?id={{projectList[0].id}}' class='item'>
+          <view class='img-box'>
+            <image src="{{projectList[0].imgUrl[0] ? projectList[0].imgUrl[0] : '/public/img/no_pic.png'}}"></image>
+          </view>
+          <view class='text-cut margin-xs'> {{projectList[0].title}}</view>
+        </navigator>
+      </block>
+      <block>
+        <navigator hover-class="none" url='/pages/goods/goods-detail/index?id={{projectList[1].id}}' class='item'>
+          <view class='img-box'>
+            <image src="{{projectList[1].imgUrl[0] ? projectList[1].imgUrl[0] : '/public/img/no_pic.png'}}"></image>
+          </view>
+          <view class='text-cut margin-xs'> {{projectList[1].title}}</view>
+        </navigator>
+      </block>
     </view>
   </view>
   <view class="cu-load bg-gray {{loadmore?'loading':'over'}}"></view>

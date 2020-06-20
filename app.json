@@ -36,7 +36,9 @@
     "pages/activity/activity-list/index",
     "pages/activity/activity-signUp/index",
     "pages/activity/activity-invite/index",
-    "pages/project/project-list/index"
+    "pages/project/project-list/index",
+    "pages/delivery/delivery-list/index",
+    "pages/delivery/delivery-type/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

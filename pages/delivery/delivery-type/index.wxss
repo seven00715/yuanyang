@@ -1,17 +1,11 @@
-/* 我参与的活动 */
-
-.active-container {
-  background: #fff;
-  min-height: 100vh;
-  padding-top: 20rpx;
-  padding-left: 30rpx;
-  padding-right: 30rpx;
-  width: 100vw;
-  box-sizing: border-box;
+.list-item {
+  /* background-color: #fff */
 }
 
-.active-container .bg-hot {
-  padding: 10rpx 30prx;
+.delivery-wrapper {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #f1f1f1;
 }
 
 .wrapper-list {
@@ -22,7 +16,6 @@
 .wrapper-list .item {
   display: inline-block;
   width: 322rpx;
-  margin-right: 20rpx;
   height: 264rpx;
 }
 
@@ -31,7 +24,7 @@
 }
 
 .wrapper-list .item .img-box {
-  width: 100%;
+  width: 50%;
   height: 183rpx;
 }
 
@@ -39,6 +32,52 @@
   width: 100%;
   height: 100%;
   border-radius: 12rpx 12rpx 0 0;
+}
+
+.consite-wraper .item {
+  display: inline-block;
+  width: 330rpx;
+  height: 368rpx;
+  /* margin-right: 20rpx; */
+  margin-bottom: 20rpx;
+  background-color: #fff;
+}
+
+.consite-wraper .item .img-box {
+  width: 316rpx;
+  height: 300rpx;
+}
+
+.item-name {
+  text-align: center;
+}
+
+.adsec {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 7rpx 10rpx;
+  height: 80rpx;
+}
+
+.adsec-icon {
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.swiper_container {
+  height: 80rpx;
+  width: 95%;
+  line-height: 80rpx;
+}
+
+.bg-hot {
+  width: 100%;
+  background-size: 100% 60%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
 }
 
 .active-wraper {

@@ -68,7 +68,6 @@
 .my-active-top {
   padding: 30rpx 26rpx;
   border-bottom: 0.5 solid #c6c6c6;
-  margin-bottom: 33px;
 }
 
 .active-list-item {
