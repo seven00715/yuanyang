@@ -5,14 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    activeInfo:{}
+    activeInfo:{},
+    tabIndex:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.fetchAcDetail()
+    console.log(options)
+    this.fetchAcDetail(options)
   },
 
   /**
@@ -63,12 +65,22 @@ Page({
   onShareAppMessage: function () {
 
   },
-  async fetchAcDetail(){
-    let {data} = await app.api.fetchAcDetail(1272159987784531970)
+  async fetchAcDetail(options){
+    let { data } = await app.api.fetchAcDetail(options.id, { type: options.type})
+    wx.setNavigationBarTitle({
+      title: data.title
+    })
     data.prizes.push(...data.prizes)
     data.activityRule=data.activityRule.split('\n')
     this.setData({
       activeInfo:data
+    })
+  },
+  // 切换tab
+  toggleTab(e){
+    console.log(e.currentTarget.dataset.index)
+    this.setData({
+      tabIndex: e.currentTarget.dataset.index
     })
   }
 })

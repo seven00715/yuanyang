@@ -71,7 +71,8 @@
   margin-right: 30rpx;
 }
 
-.active-step-content {
+.active-step-content,
+.active-step2-content {
   position: relative;
   background-color: #8d072a;
   border-radius: 10rpx;
@@ -92,7 +93,8 @@
  margin-bottom: 20rpx;
 }
 
-.active-step-content::before {
+.active-step-content::before,
+.active-step2-content::before{
   content: "";
   display: block;
   position: absolute;
@@ -104,6 +106,10 @@
   border-color: transparent;
   border-width: 0 20rpx 20rpx 20rpx;
   border-bottom-color: #8d072a;
+}
+
+.active-step2-content::before {
+  left: 378rpx;
 }
 
 .active-sign .signbut {

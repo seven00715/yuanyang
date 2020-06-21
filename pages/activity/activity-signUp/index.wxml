@@ -16,22 +16,24 @@
   <!-- 活动步骤 -->
   <view class="active-step">
     <view class="active-step-title">
-      <text>1.预约报名</text>
-      <text>2.抽取大奖</text>
+      <text bindtap="toggleTab" data-index="0">1.预约报名</text>
+      <text bindtap="toggleTab" data-index="1">2.抽取大奖</text>
     </view>
-    <view class="active-step-content">
-      <view  class="h4">快来报名参加抽奖活动</view>
+    <view class="active-step-content" wx:if="{{tabIndex=='0'}}">
+      <view class="h4">快来报名参加抽奖活动</view>
       <view class="p">报名时间: {{activeInfo.startTime}} - {{activeInfo.endTime}}</view>
       <view class="p">活动城市: {{activeInfo.activityCity}}</view>
-      <image 
-      src="../../../assets/signactive-03.png" class="signbut"></image>
+      <image src="../../../assets/signactive-03.png" class="signbut"></image>
+    </view>
+    <view class="active-step2-content" wx:if="{{tabIndex=='1'}}">
+      <view class="h4">{{activeInfo.lottery}}</view>
     </view>
   </view>
   <!-- 活动规则 -->
   <view class="active-rule">
-  <view class="rule-title"> 报名活动规则 </view>
-  <view wx:for="{{activeInfo.activityRule}}" wx:key="index" class="rule-content">
-  {{ item}}
-  </view>
+    <view class="rule-title"> 报名活动规则 </view>
+    <view wx:for="{{activeInfo.activityRule}}" wx:key="index" class="rule-content">
+      {{ item}}
+    </view>
   </view>
 </view>
