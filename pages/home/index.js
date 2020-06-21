@@ -1,4 +1,3 @@
-
 const app = getApp()
 
 Page({
@@ -23,14 +22,14 @@ Page({
         this.loadData()
       })
   },
-  onShow(){
+  onShow() {
     //更新tabbar购物车数量
     wx.setTabBarBadge({
       index: 2,
       text: app.globalData.shoppingCartCount + ''
     })
   },
-  loadData(){
+  loadData() {
     this.fetchAcList()
     this.swiperGet()
     this.fetchNewsList()
@@ -39,18 +38,18 @@ Page({
     // this.goodsHot()
     // this.goodsPage()
   },
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
     let title = '悦生活'
     let path = 'pages/home/index'
     return {
       title: title,
       path: path,
-      success: function (res) {
+      success: function(res) {
         if (res.errMsg == 'shareAppMessage:ok') {
           console.log(res.errMsg)
         }
       },
-      fail: function (res) {
+      fail: function(res) {
         // 转发失败
       }
     }
@@ -58,23 +57,23 @@ Page({
   //获取轮播图
   swiperGet() {
     app.api.noticeGet({
-      type: '1',
-      enable: '1'
-    })
+        type: '1',
+        enable: '1'
+      })
       .then(res => {
         let notice = res.data
-        if (notice){
+        if (notice) {
           this.setData({
             swiperData: notice.listNoticeItem
           })
         }
       })
   },
-  
+
   fetchNewsList() {
     app.api.fetchNewsList({
-      type: 0,
-    })
+        type: 0,
+      })
       .then(res => {
         let newsList = res.data.records
         this.setData({
@@ -84,8 +83,8 @@ Page({
   },
   fetchProjectList() {
     app.api.fetchNewsList({
-      type: 2,
-    })
+        type: 2,
+      })
       .then(res => {
         let projectList = res.data.records
         this.setData({
@@ -96,11 +95,11 @@ Page({
   //新品首发
   goodsNew() {
     app.api.goodsPage({
-      searchCount: false,
-      current: 1,
-      size: 5,
-      descs: 'create_time'
-    })
+        searchCount: false,
+        current: 1,
+        size: 5,
+        descs: 'create_time'
+      })
       .then(res => {
         let goodsListNew = res.data.records
         this.setData({
@@ -109,9 +108,9 @@ Page({
       })
   },
 
-  
 
-  
+
+
   //   //  活动详情
   // fetchAcDetail() {
   //   app.api.fetchAcDetail('1272159987784531970')
@@ -125,10 +124,11 @@ Page({
   //  活动接口
   fetchAcList() {
     app.api.fetchAcList({
-     current:1, size:20
-    })
+        current: 1,
+        size: 20
+      })
       .then(res => {
-        let activeList = res.data.records.slice(0,2)
+        let activeList = res.data.records.slice(0, 2)
         this.setData({
           activeList: activeList
         })
@@ -136,11 +136,11 @@ Page({
   },
   goodsHot() {
     app.api.goodsPage({
-      searchCount: false,
-      current: 1,
-      size: 5,
-      descs: 'sale_num'
-    })
+        searchCount: false,
+        current: 1,
+        size: 5,
+        descs: 'sale_num'
+      })
       .then(res => {
         let goodsListHot = res.data.records
         this.setData({
@@ -162,7 +162,7 @@ Page({
         }
       })
   },
-  refresh(){
+  refresh() {
     this.setData({
       loadmore: true,
       ['page.current']: 1,
@@ -172,7 +172,7 @@ Page({
     })
     this.loadData()
   },
-  onPullDownRefresh(){
+  onPullDownRefresh() {
     // 显示顶部刷新图标
     wx.showNavigationBarLoading()
     this.refresh()
@@ -189,17 +189,27 @@ Page({
       this.goodsPage()
     }
   },
-  jumpPage(e){
+  jumpPage(e) {
     let page = e.currentTarget.dataset.page
-    if (page){
+    if (page) {
       wx.navigateTo({
         url: page
       })
     }
   },
-  jumpToactive(){
-    wx.navigateTo({
-      url: '/pages/activity/activity-invite/index'
-    })
+  jumpToactive(e) {
+    console.log(e)
+    let item = e.currentTarget.dataset.item
+
+    if (item.type === 1) {
+      wx.navigateTo({
+        url: `/pages/activity/activity-signUp/index?id=${item.id}&type=${item.type}`
+      })
+    } else if (item.type === 2) {
+      wx.navigateTo({
+        url: `/pages/activity/activity-invite/index?id=${item.id}&type=${item.type}`
+      })
+    }
+
   }
 })

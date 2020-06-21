@@ -5,14 +5,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-    activeInfo:{}
+    activeInfo:{},
+    id:null,
+    type:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.fetchAcDetail()
+    console.log(options)
+    this.setData({
+      id:options.id,
+      type:options.type
+    })
+    this.fetchAcDetail(options)
   },
 
   /**
@@ -62,10 +69,15 @@ Page({
    */
   onShareAppMessage: function () {
   },
-  async fetchAcDetail(){
-    let {data} = await app.api.fetchAcDetail(1272159987784531970,{type:2})
-    data.prizes.push(...data.prizes)
+  async fetchAcDetail(options){
+    let { data } = await app.api.fetchAcDetail(options.id, { type: options.type})
+    // data.prizes.push(...data.prizes)
+    data.content = data.content.split("\n")
     data.activityRule=data.activityRule.split('\n')
+    data.yyActivityCalls.push(...data.yyActivityCalls)
+    wx.setNavigationBarTitle({
+      title: data.title
+    })
     this.setData({
       activeInfo:data
     })

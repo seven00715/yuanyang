@@ -20,10 +20,16 @@
   border-bottom: none;
   background-color: #eb9540;
   text-align: center;
-  padding: 35rpx 0;
-  font-size: 45rpx;
-  color: #fff0e4;
+  padding: 10rpx 0;
+  font-size: 28rpx;
+  color: #FFEDCE;
   box-shadow: 0px -10px 40px -10px #831202 inset;
+}
+
+.active-title-name {
+  font-size: 38rpx;
+  color: #FFE8B9;
+  margin-bottom: 11rpx;
 }
 
 .prize-outside {
@@ -97,6 +103,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10rpx;
 }
 
 .invitee .invitee-img {
@@ -104,6 +111,9 @@
   height: 80rpx;
   border-radius: 50%;
   margin-left: 35rpx;
+  vertical-align: middle;
+  font-size: 30rpx;
+  font-weight: 600;
 }
 
 .uninviter-number {
