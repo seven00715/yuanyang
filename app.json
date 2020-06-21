@@ -38,7 +38,8 @@
     "pages/activity/activity-invite/index",
     "pages/project/project-list/index",
     "pages/delivery/delivery-list/index",
-    "pages/delivery/delivery-type/index"
+    "pages/delivery/delivery-type/index",
+    "pages/live/live-new/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -59,7 +60,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/livePlayer2/livePlayer",
+        "pagePath": "pages/live/live-new/index",
         "iconPath": "public/img/live.png",
         "selectedIconPath": "public/img/live@selected.png",
         "text": "直播new"

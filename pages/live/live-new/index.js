@@ -1,41 +1,40 @@
-// pages/news/index.js
+// pages/live/live-new.js
 const app = getApp()
-
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    projectList: [],
+    liveList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
+  onLoad: function (options) {
     app.initPage()
       .then(res => {
+        console.log('initPage')
         this.loadData()
       })
   },
-  loadData() {
-    // this.fetchNewsList()
-    this.fetchTypeList()
-    // this.goodsNew()
-    // this.goodsHot()
-    // this.goodsPage()
+  loadData(){
+    this.fetchLiveList()
   },
-  fetchTypeList() {
-      app.api.fetchTypeList({
+  fetchLiveList() {
+    app.api.fetchLiveList({
+      current: 1,
+      size: 20
     })
       .then(res => {
-        let projectList = res.data.records
+        let liveList = res.data.records
         this.setData({
-          projectList: projectList
+          liveList: liveList
         })
       })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

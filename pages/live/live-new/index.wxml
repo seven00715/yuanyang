@@ -1,0 +1,35 @@
+<!--pages/live/live-new.wxml-->
+<view class="live-waper-out">
+  <view class="live-top">
+    <view class="img-box">
+      <view class="pause">暂停</view>
+      <image src="/public/img/car.jpg"></image>
+    </view>
+    <view class="live-info">
+      <view class="top-title">2020.04.08 远洋·琨庭正在直播</view>
+      <view class="top-times">2.5W次播放</view>
+    </view>
+  </view>
+  <view class="more-live">
+    更多直播回放
+  </view>
+  <view class="live-wraper">
+    <view class="live-list-wraper">
+    <view wx:for="{{liveList}}" >
+      <view class="live-item flex-row-between" >
+        <view class="live-item-left flex-row-start">
+          <view class="live-img">
+            <image src="/public/img/car.jpg"></image>
+          </view>
+          <view class="live-text">2020年5月27日直播详情</view>
+        </view>
+
+        <view class="handle-btn">
+          <image src="/public/img/car.jpg"></image>
+        </view>
+      </view>
+      <view class="line"></view>
+    </view>
+    </view>
+  </view>
+</view>

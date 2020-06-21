@@ -1,8 +1,8 @@
 <view>
   <view class='delivery-wrapper bg-hot'>
     <view class='wrapper-list  radius row-wraper consite-wraper flex-row-between-wrap'>
-      <block wx:for="{{projectList}}" data-index="item.id" wx:key="index">
-        <navigator hover-class="none" url='/pages/goods/goods-detail/index?id={{item.id}}' class='item'>
+      <block wx:for="{{projectList}}" data-index="item.id" wx:key="index"  >
+        <navigator hover-class="none" url='/pages/delivery/delivery-list/index?id={{item.id}}' class='item'>
           <view class='img-box'>
             <image src="{{item.img[0] ? item.img[0] : '/public/img/no_pic.png'}}"></image>
           </view>
@@ -11,5 +11,5 @@
       </block>
     </view>
   </view>
-  <view class="cu-load bg-gray {{loadmore?'loading':'over'}}"></view>
+  <!-- <view class="cu-load bg-gray {{loadmore?'loading':'over'}}"></view> -->
 </view>

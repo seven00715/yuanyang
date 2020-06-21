@@ -7,13 +7,16 @@ Page({
    * 页面的初始数据
    */
   data: {
+    options: {},
     newsList: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
+  onLoad: function (options) {
+    console.log('options', options)
+    this.options = options
     app.initPage()
       .then(res => {
         this.loadData()
@@ -21,26 +24,11 @@ Page({
   },
   loadData() {
     this.fetchNewsList()
-    // this.fetchTypeList()
-    // this.goodsNew()
-    // this.goodsHot()
-    // this.goodsPage()
   },
-  
-  fetchTypeList() {
-      app.api.fetchTypeList({
-    })
-      .then(res => {
-        let newsList = res.data.records
-        this.setData({
-          newsList: newsList
-        })
-      })
-  },
-  // 资讯
+  // 交付展示
   fetchNewsList() {
     app.api.fetchNewsList({
-      type: 0
+      type: this.options.id
     })
       .then(res => {
         let newsList = res.data.records
