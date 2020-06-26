@@ -26,7 +26,7 @@
       </navigator>
     </view>
     <view class="cu-item">
-      <navigator url="/pages/coupon/coupon-list/index" hover-class="none">
+      <navigator url="/pages/research/index" hover-class="none">
         <view class="lg text-green iconfont iconresearch"></view>
         <text class="text-black">参与调研</text>
       </navigator>

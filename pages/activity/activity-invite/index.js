@@ -6,17 +6,19 @@ Page({
    */
   data: {
     activeInfo:{},
-    id:null,
-    type:null
+    id: null,
+    type:null,
+    optData: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    console.log("options", options)
+    this.optData = options
     this.setData({
-      id:options.id,
+      id: options.id,
       type:options.type
     })
     this.fetchAcDetail(options)
@@ -81,5 +83,26 @@ Page({
     this.setData({
       activeInfo:data
     })
+  },
+
+  async onInvite() {
+    const res = await app.api.inviteJoin({
+      activityId: this.optData.id
+    })
+    if (res.code === 0) {
+      wx.showToast({
+        title: res.data,
+        icon: 'succes',
+        duration: 1000,
+        mask: true
+      })
+    } else {
+      wx.showToast({
+        title: "报名失败，请重试",
+        icon: 'succes',
+        duration: 1000,
+        mask: true
+      })
+    }
   }
 })

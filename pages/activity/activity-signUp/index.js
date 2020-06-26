@@ -6,7 +6,8 @@ Page({
    */
   data: {
     activeInfo:{},
-    tabIndex:0
+    tabIndex:0,
+    acOptions: {}
   },
 
   /**
@@ -14,6 +15,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
+    this.acOptions = options
     this.fetchAcDetail(options)
   },
 
@@ -64,6 +66,29 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  async signActive(id){
+    console.log('signActive activeInfo', this.activeInfo)
+   const res =await app.api.signActive({
+     activityId: this.acOptions.id
+    })
+    console.log('res---',res)
+    if(res.code === 0) {
+      wx.showToast({
+        title: res.data,
+        icon: 'succes',
+        duration: 1000,
+        mask: true
+      })
+    }else{
+      wx.showToast({
+        title: "报名失败，请重试",
+        icon: 'succes',
+        duration: 1000,
+        mask: true
+      })
+    }
+    console.log('signActive',res)
   },
   async fetchAcDetail(options){
     let { data } = await app.api.fetchAcDetail(options.id, { type: options.type})
