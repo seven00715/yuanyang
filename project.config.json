@@ -148,6 +148,13 @@
 					"id": -1,
 					"name": "pages/activity/activity-signUp/index",
 					"pathName": "pages/activity/activity-signUp/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/research/index",
+					"pathName": "pages/research/index",
 					"scene": null
 				}
 			]

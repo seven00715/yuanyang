@@ -93,14 +93,12 @@ Page({
       wx.showToast({
         title: res.data,
         icon: 'succes',
-        duration: 1000,
         mask: true
       })
     } else {
       wx.showToast({
         title: "报名失败，请重试",
         icon: 'succes',
-        duration: 1000,
         mask: true
       })
     }

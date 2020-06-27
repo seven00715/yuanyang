@@ -16,6 +16,16 @@ Page({
     projectList: [],
     activeList: []
   },
+  goHouse(){
+    wx.navigateToMiniProgram({
+      appId: 'wxbadc8fcc8f753243'
+    })
+  },
+  goHotLine(){
+    wx.makePhoneCall({
+      phoneNumber: '18686168810' //仅为示例，并非真实的电话号码
+    })
+  },
   onLoad() {
     app.initPage()
       .then(res => {

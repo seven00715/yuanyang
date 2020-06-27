@@ -1,66 +1,77 @@
-// pages/research/index.js
+const app = getApp()
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    pickerHidden: true,
+    chosen: '',
+    formData: [],
+    mockData: [{
+      "option": ["100元", "1000的优惠券"],
+      "question": "你想要100还是1个1000的优惠券",
+      "question_type": "2"
+    }, {
+      "option": ["石榴", "猕猴桃", "其他"],
+      "question": "给你100块你想买哪些东西",
+      "question_type": "3"
+    }, {
+      "question": "你想对小编说什么",
+      "question_type": "1"
+    }]
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onLoad: function(options) {
+    this.signActive()
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  async signActive(id) {
+    console.log('signActive activeInfo', this.activeInfo)
+    const res = await app.api.research()
+    if(res.code === 0){
+      this.setData({
+        formData : res.data.survey_form
+      })
+    }
+    console.log('res', res)
+  },
+  onShareAppMessage() {
+    return {
+      title: 'form',
+      path: 'page/component/pages/form/form'
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+  // 
 
+ 
+
+  pickerConfirm(e) {
+    this.setData({
+      pickerHidden: true
+    })
+    this.setData({
+      chosen: e.detail.value
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  pickerCancel() {
+    this.setData({
+      pickerHidden: true
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  pickerShow() {
+    this.setData({
+      pickerHidden: false
+    })
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  formSubmit(e) {
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  formReset(e) {
+    console.log('form发生了reset事件，携带数据为：', e.detail.value)
+    this.setData({
+      chosen: ''
+    })
   }
 })

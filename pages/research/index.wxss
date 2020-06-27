@@ -1,1 +1,11 @@
 /* pages/research/index.wxss */
+.research-container{
+  height: 100vh;
+  background-color: #fff;
+  padding-top: 30rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+.research-container .page-section{
+  margin-bottom: 30rpx;
+}

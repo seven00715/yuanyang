@@ -125,7 +125,11 @@ module.exports = {
   },
   // 邀请
   inviteJoin: (data) => {
-    return request(`/api/ma/yyactivity/getInviteDetail`, 'get', data, false)
+    return request(`/mall/api/ma/yyactivity/getInviteDetail`, 'get', data, false)
+  },
+  // 调查研究
+  research: (data) => {
+    return request(`/mall/api/ma/yysurvey/page`, 'get', data, false)
   },
   fetchTypeList: (data) => { // type
     return request('/mall/api/ma/yyproject/page', 'get', data, false)

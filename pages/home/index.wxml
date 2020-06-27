@@ -7,23 +7,17 @@
   </swiper>
 
   <view class="cu-list grid col-5 no-border">
-    <view class="cu-item">
-      <navigator url="/pages/groupon/groupon-list/index" hover-class="none">
+    <view class="cu-item" ontap="goHouse">
         <view class="lg  text-orange iconfont iconhome" style="color: rgb(224, 96, 96)"></view>
         <text class="text-black">我要购房</text>
-      </navigator>
     </view>
     <view class="cu-item">
-      <navigator url="/pages/groupon/groupon-list/index" hover-class="none">
         <view class="lg  text-red iconfont iconrecom"></view>
         <text class="text-black">我要推荐</text>
-      </navigator>
     </view>
-    <view class="cu-item">
-      <navigator url="/pages/bargain/bargain-list/index" hover-class="none">
+    <view class="cu-item" ontap="goHotLine">
         <view class="lg text-blue iconfont iconhot"></view>
         <text class="text-black">热线咨询</text>
-      </navigator>
     </view>
     <view class="cu-item">
       <navigator url="/pages/research/index" hover-class="none">

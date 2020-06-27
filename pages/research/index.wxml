@@ -1,2 +1,44 @@
 <!--pages/research/index.wxml-->
-<text>pages/research/index.wxml</text>
+
+<view class="research-container">
+  <view class="page-body">
+    <form catchsubmit="formSubmit" catchreset="formReset">
+      <view wx:for="{{formData}}" wx:key="index" data-type="item.type">
+        <view class="page-section" wx:if="{{item.question_type === '1'}}">
+          <view class="page-section-title">{{item.question}}</view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__bd" style="margin: 30rpx 0">
+                <input class="weui-input" name="input" placeholder="请输入" />
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="page-section page-section-gap" wx:if="{{item.question_type === '2'}}">
+          <view class="page-section-title">{{item.question}}</view>
+          <radio-group name="radio">
+            <label wx:for="{{item.option}}" wx:key="index" data-option="item.option">
+              <radio value="radio1" />{{item.option}}
+             </label>
+         
+          </radio-group>
+        </view>
+
+        <view class="page-section page-section-gap" wx:if="{{item.question_type === '3'}}">
+          <view class="page-section-title">{{item.question}}</view>
+          <checkbox-group name="checkbox">
+            <label>
+              <checkbox value="checkbox1" />选项一</label>
+            <label>
+              <checkbox value="checkbox2" />选项二</label>
+          </checkbox-group>
+        </view>
+
+      </view>
+      <view class="btn-area">
+        <button type="primary" style="width: 50%;height: 90rpx;line-height: 90rpx" type="primary" formType="submit">提交</button>
+      </view>
+    </form>
+  </view>
+</view>
