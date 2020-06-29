@@ -1,0 +1,156 @@
+.active-sign {
+  background-color: #dc904f;
+  padding-bottom: 46rpx;
+}
+
+.active-sign image {
+  background-color: #01102d;
+  width: 100%;
+  height: 790rpx;
+}
+
+.active-title {
+  transform: translateY(-40rpx);
+  -webkit-transform: translateY(-40rpx);
+  box-sizing: border-box;
+  width: 100%;
+  height: 148rpx;
+  border: 10rpx solid #b55118;
+  border-radius: 30rpx 30rpx 0 0;
+  border-bottom: none;
+  background-color: #eb9540;
+  text-align: center;
+  padding: 10rpx 0;
+  font-size: 28rpx;
+  color: #FFEDCE;
+  box-shadow: 0px -10px 40px -10px #831202 inset;
+}
+
+.active-title-name {
+  font-size: 38rpx;
+  color: #FFE8B9;
+  margin-bottom: 11rpx;
+}
+
+.prize-outside {
+  width: 100%;
+  /* height:  */
+  overflow: hidden;
+  padding-bottom: 26rpx;
+}
+
+.prize-inside {
+  display: flex;
+  padding: 0 30rpx;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.prize-inside-item {
+  padding-right: 38rpx;
+  text-align: center;
+}
+
+.prize-inside-item image {
+  width: 182rpx;
+  height: 182rpx;
+}
+
+.prize-inside-item-name {
+  color: #fff0e4;
+  font-size: 24rpx;
+}
+
+.active-step {
+  padding: 20rpx 36rpx;
+  font-size: 28rpx;
+  color: #fff;
+  position: relative;
+  text-align: center;
+}
+
+.active-step .invite-people {
+  width: 312rpx;
+  height: 258rpx;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  top: -80rpx;
+}
+
+.active-step .invite-people-bg {
+  
+  /* margin: 0 auto; */
+  /* position: absolute; */
+  width: 312rpx;
+  height: 258rpx;
+  /* left: 50%;
+  transform: translateX(-50%); */
+}
+
+.active-step .invite-people .invite-people-ava {
+  width: 220rpx;
+  height: 224rpx;
+  position: absolute;
+  /* top: -75rpx; */
+  left: 50%;
+  top: 50%;
+  transform: translate(-49%,-51%);
+  
+} 
+
+.invitee {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.invitee .invitee-img {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-left: 35rpx;
+  vertical-align: middle;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.uninviter-number {
+  margin-top: 17rpx;
+  font-size: 25rpx;
+  color: #97470D;
+}
+
+
+.active-sign .signbut {
+  width: 465rpx;
+  height: 92rpx;
+  margin-top: 37rpx;
+  /* position: absolute; */
+  /* bottom: -240rpx; */
+  /* left: 50%;
+  transform: translateX(-50%); */
+  border-radius: 46rpx;
+}
+
+.active-rule {
+  border-radius: 10rpx;
+  margin: 42rpx 36rpx;
+  /* margin-top: 100rpx; */
+  padding: 41rpx 32rpx;
+  background-color: #b76834;
+  font-size: 25rpx;
+  color: #FFF0E4;
+  /* text-align: center; */
+  overflow: hidden
+}
+
+.rule-title{
+  font-size: 32rpx;
+  text-align: center;
+  margin-bottom: 34rpx;
+}
+.rule-content{
+  line-height: 30rpx;
+}

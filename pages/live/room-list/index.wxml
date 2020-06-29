@@ -1,0 +1,19 @@
+
+<view class="live-container">
+  <view class="live-box" wx:for="{{roomList}}" wx:key="index">
+    <navigator class="cu-card case" url="plugin-private://wx2b03c6e691cd7370/pages/live-player-plugin?room_id={{item.roomid}}">
+      <view class="cu-item shadow">
+        <view class="image">
+          <image src="{{item.coverImg}}"></image>
+          <view class="cu-tag bg-red" wx-if="{{item.liveStatus == 101}}"><text class="cuIcon-playfill"></text>正在直播</view>
+          <view class="cu-bar bg-shadeBottom">
+            <view class="cu-avatar round" style="background-image:url({{item.anchorImg}});"></view>
+            <view class="text-sm margin-left-xs overflow-1">{{item.anchorName}}</view>
+          </view>
+        </view>
+        <text class="text-cut overflow-2">{{item.name}}</text>
+      </view>
+    </navigator>
+  </view>
+</view>
+<view class="cu-load bg-gray {{roomList.length>0?'':'over'}}"></view>

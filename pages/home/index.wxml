@@ -1,0 +1,137 @@
+<view class="margin-top-bar">
+  <swiper wx:if="{{swiperData.length > 0}}" class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+    <swiper-item wx:for="{{swiperData}}" wx:key="index" bindtap="jumpPage" data-page="{{item.page}}">
+      <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='1'}}"></image>
+      <video src="{{item.url}}" wx:if="{{item.type=='1'}}" controls></video>
+    </swiper-item>
+  </swiper>
+
+  <view class="cu-list grid col-5 no-border">
+    <view class="cu-item">
+      <navigator url="/pages/groupon/groupon-list/index" hover-class="none">
+        <view class="lg  text-orange iconfont iconhome" style="color: rgb(224, 96, 96)"></view>
+        <text class="text-black">我要购房</text>
+      </navigator>
+    </view>
+    <view class="cu-item">
+      <navigator url="/pages/groupon/groupon-list/index" hover-class="none">
+        <view class="lg  text-red iconfont iconrecom"></view>
+        <text class="text-black">我要推荐</text>
+      </navigator>
+    </view>
+    <view class="cu-item">
+      <navigator url="/pages/bargain/bargain-list/index" hover-class="none">
+        <view class="lg text-blue iconfont iconhot"></view>
+        <text class="text-black">热线咨询</text>
+      </navigator>
+    </view>
+    <view class="cu-item">
+      <navigator url="/pages/coupon/coupon-list/index" hover-class="none">
+        <view class="lg text-green iconfont iconresearch"></view>
+        <text class="text-black">参与调研</text>
+      </navigator>
+    </view>
+    <view class="cu-item">
+      <navigator url="/pages/delivery/delivery-type/index" hover-class="none">
+        <view class="lg text-yellow2 iconfont iconshow"></view>
+        <text class="text-black">交付展示</text>
+      </navigator>
+    </view>
+  </view>
+
+  <view class='wrapper bg-hot brand-wrapper'>
+    <view class="cu-bar text-white">
+      <view class='action text-bold text-black'>
+        品牌资讯
+      </view>
+      <navigator hover-class="none" url='/pages/news/index' class='action'>
+        更多
+        <text class='cuIcon-right'></text>
+      </navigator>
+    </view>
+
+    <view class='wrapper-list bg-white radius row-wraper  '>
+      <block>
+        <navigator hover-class="none" url='/pages/goods/goods-detail/index?id={{newsList[0].id}}' class='item'>
+          <view class='img-box' wx-if="{{newsList[0]}}">
+            <image src="{{newsList[0].imgUrl[0] || '/public/img/no_pic.png'}}"></image>
+          </view>
+          <view class='text-cut margin-xs'>{{newsList[0].title}}</view>
+        </navigator>
+      </block>
+      <block>
+        <navigator hover-class="none" wx-if="{{newsList[1]}}" url='/pages/goods/goods-detail/index?id={{newsList[1].id}}' class='item'>
+          <view class='img-box'>
+            <image src="{{newsList[1].imgUrl[0]||'/public/img/no_pic.png'}}"></image>
+          </view>
+          <view class='text-cut margin-xs'>{{newsList[0].title}}</view>
+        </navigator>
+      </block>
+    </view>
+  </view>
+
+  <view class='wrapper bg-hot'>
+    <view class="cu-bar text-white">
+      <view class='action text-bold text-black'>
+        热门活动
+      </view>
+      <navigator hover-class="none" url='/pages/activity/activity-list/index' class='action'>
+        更多
+        <text class='cuIcon-right'></text>
+      </navigator>
+    </view>
+
+    <view class="active-wraper" wx:for="{{activeList}}" wx:key="id" data-id="item.id">
+      <view class='active-item'>
+        <image src="{{item.img[0]}}"></image>
+        <view class="flex-row-between-start bom-waper">
+          <view class="ac-info">
+            <view class="ac-title flex-row-start">
+              <view class="icon">
+                <text wx:if="{{item.isNew}}">新</text>
+              </view> {{item.title}}
+            </view>
+            <view class="as-time">
+              活动截止：{{item.endTime}}
+            </view>
+          </view>
+          <view class="flex-column-between-start btn-wraper">
+            <view></view>
+            <button bindtap="jumpToactive" data-item="{{item}}">马上参与</button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='wrapper bg-hot'>
+    <view class="cu-bar text-white">
+      <view class='action text-bold text-black'>
+        工地展示
+      </view>
+      <navigator hover-class="none" url='/pages/project/project-list/index' class='action'>
+        更多
+        <text class='cuIcon-right'></text>
+      </navigator>
+    </view>
+    <view class='wrapper-list bg-white radius row-wraper consite-wraper flex-row-between-start '>
+      <block>
+        <navigator hover-class="none" url='/pages/goods/goods-detail/index?id={{projectList[0].id}}' class='item'>
+          <view class='img-box'>
+            <image src="{{projectList[0].imgUrl[0] ? projectList[0].imgUrl[0] : '/public/img/no_pic.png'}}"></image>
+          </view>
+          <view class='text-cut margin-xs'> {{projectList[0].title}}</view>
+        </navigator>
+      </block>
+      <block>
+        <navigator hover-class="none" url='/pages/goods/goods-detail/index?id={{projectList[1].id}}' class='item'>
+          <view class='img-box'>
+            <image src="{{projectList[1].imgUrl[0] ? projectList[1].imgUrl[0] : '/public/img/no_pic.png'}}"></image>
+          </view>
+          <view class='text-cut margin-xs'> {{projectList[1].title}}</view>
+        </navigator>
+      </block>
+    </view>
+  </view>
+  <view class="cu-load bg-gray {{loadmore?'loading':'over'}}"></view>
+</view>

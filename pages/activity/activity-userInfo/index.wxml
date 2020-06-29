@@ -1,0 +1,18 @@
+<view class="page-body">
+  <form catchsubmit="formSubmit" catchreset="formReset">
+    <view class="page-section" wx:for="{{activitycolumn1}}" wx:key="index">
+      <view class="weui-cells__title">{{item.label}}:</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input class="weui-input" name="{{item.prop}}" auto-focus bindblur="bindInput" data-index="{{index}}" />
+        </view>
+      </view>
+    </view>
+
+    <!-- 提交 -->
+    <view class="btn-area">
+      <button style="margin: 30rpx 0" type="primary" formType="submit">Submit</button>
+      <button style="margin: 30rpx 0" formType="reset">Reset</button>
+    </view>
+  </form>
+</view>

@@ -1,0 +1,53 @@
+<wxs src="./index.wxs" module="ml" />
+<!-- 报名活动页面 -->
+<view class="active-sign">
+  <!-- 活动主图 -->
+  <image src="{{activeInfo.img[0]}}"></image>
+  <!-- 主要文字(标题) -->
+  <view class="active-title">
+    <view class="active-title-name">{{activeInfo.content[0]}}</view>
+    <view class="active-title-content">{{activeInfo.content[1]}}</view>
+  </view>
+  <!-- 活动步骤 -->
+  <view class="active-step">
+    <view class="invite-people">
+      <image class="invite-people-bg" src="../../../assets/inviter-bg.png" lazy-load="false"></image>
+      <image class="invite-people-ava" src="{{activeInfo.img[1]?activeInfo.img[1]: '../../../assets/inviter-ava.png'}}" lazy-load="false"></image>
+    </view>
+    <!-- 被邀请人列表 -->
+    <view class="invitee">
+      <!-- 邀请照片那个人数小于等于5 -->
+      <view wx:if="{{activeInfo.inviteNum < 6}}">
+        <!-- 没有邀请够 -->
+        <view wx:if="{{activeInfo.yyActivityCalls.length < activeInfo.inviteNum}}">
+          <image wx:for="{{activeInfo.yyActivityCalls}}" wx:key="index" class="invitee-img" src="{{item.callImg[0]}}"></image>
+          <image wx:for="{{activeInfo.inviteNum-activeInfo.yyActivityCalls.length}}" wx:key="index" class="invitee-img" src="../../../assets/invitee-img.png"></image>
+        </view>
+        <!-- 邀请够了,直接遍历 -->
+        <view wx:if="{{activeInfo.yyActivityCalls.length == activeInfo.inviteNum}}">
+          <image wx:for="{{activeInfo.yyActivityCalls}}" wx:key="index" class="invitee-img" src="{{item.callImg[0]}}"></image>
+        </view>
+      </view>
+      <!-- 邀请人数大于5人时候 -->
+      <view wx:if="{{activeInfo.inviteNum > 5 }}">
+        <view wx:if="{{activeInfo.yyActivityCalls.length < 6}}">
+          <image wx:for="{{activeInfo.yyActivityCalls}}" wx:key="index" class="invitee-img" src="{{item.callImg[0]}}"></image>
+          <image wx:for="{{5-activeInfo.yyActivityCalls.length}}" wx:key="item.id" class="invitee-img" src="../../../assets/invitee-img.png"></image>
+        </view>
+        <view wx:if="{{activeInfo.yyActivityCalls.length > 5}}">
+          <image wx:for="{{ml.slice(activeInfo.yyActivityCalls,0,5)}}" wx:key="id" class="invitee-img" 
+          src="{{item.callImg[0]}}"></image>
+          <text class="invitee-img">· · ·</text>
+        </view>
+      </view>
+    </view>
+
+    <rich-text class="uninviter-number" type="p">还差{{activeInfo.inviteNum}}人达成</rich-text>
+    <image src="../../../assets/invite-button.png" class="signbut"></image>
+  </view>
+  <!-- 活动规则 -->
+  <view class="active-rule">
+    <view class="rule-title">分享活动规则</view>
+    <view wx:for="{{activeInfo.activityRule}}" wx:key="index" class="rule-content">{{ item}}</view>
+  </view>
+</view>

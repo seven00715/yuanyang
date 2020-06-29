@@ -1,0 +1,19 @@
+
+<scroll-view scroll-x class="bg-white nav fixed">
+  <view class="flex text-center">
+    <view class="cu-item flex-sub {{index==tabCur?'text-red cur':''}}" wx:for="{{couponStatus}}" wx:key="index" 
+    bindtap="tabSelect" data-index="{{index}}" data-key="{{item.key}}">
+      {{item.value}}
+    </view>
+  </view>
+</scroll-view>
+<view class="margin-top-bar bg-white">
+  <view class="cu-list">
+    <view class="cu-item padding-top padding-lr" wx:for="{{ couponUserList }}" wx:key="index" wx:for-index="index">
+      <coupon-user-info
+            couponUserInfo="{{item}}"
+          />
+    </view>
+  </view>
+  <view class="cu-load bg-white {{loadmore?'loading':'over'}}"></view>
+</view>

@@ -1,0 +1,93 @@
+
+<wxs module="numberUtil" src="../../../utils/numberUtil.wxs"></wxs>
+<view class="margin-bottom-bar">
+  <view class="cu-list cu-card menu-avatar">
+    <view class="cu-item padding-left delivery-way">
+      <radio-group bindchange="deliveryWayChange">
+        <radio class="red margin-right-xs" checked value="1"></radio>普通快递
+        <radio class="red margin-left-sm margin-right-xs" value="2"></radio>上门自提
+      </radio-group>
+    </view>
+    <navigator class="cu-item" url='/pages/user/user-address/list/index?select=true' wx:if="{{orderSubParm.deliveryWay == '1'}}">
+      <view class="cu-avatar round cuIcon-location bg-orange"></view>
+      <view class="content loc-content" wx:if="{{userAddress}}">
+        <view class="flex">
+          <view class="text-black">{{userAddress.userName}}</view>
+          <view class="text-gray text-sm margin-left-sm">{{userAddress.telNum}}</view>
+        </view>
+        <view class="text-black text-sm overflow-2 loc-info">
+            <view class="cu-tag bg-red sm margin-left-sm" wx:if="{{userAddress.isDefault == '1'}}">默认</view>
+						{{userAddress.provinceName}}{{userAddress.cityName}}{{ituserAddressem.countyName}}{{userAddress.detailInfo}}
+        </view>
+      </view>
+      <view class="content loc-content" wx:if="{{!userAddress}}">
+        请选择收货地址
+      </view>
+      <view class="action">
+        <text class="cuIcon-right"></text>
+      </view>
+    </navigator>
+  </view>
+  <view class="cu-card article mar-top-30">
+    <view class="cu-item">
+      <view class="cu-list menu">
+        <view class="cu-item list-item" wx:for="{{ orderConfirmData }}" wx:key="index">
+          <view class="flex align-center">
+            <view class="content response">
+              <image src="{{item.picUrl ? item.picUrl : '/public/img/no_pic.png'}}" mode="aspectFill" class="row-img margin-top-xs"></image>
+              <view class="desc row-info">
+                <view class="text-black margin-top-sm overflow-2">{{item.spuName}}</view>
+                <view class="text-gray text-sm margin-top-xs cu-tag round" wx:if="{{item.specInfo}}">
+                  {{item.specInfo}}
+                </view>
+                <view class="flex">
+                  <view class="flex-sub">
+                    <text class="text-price text-bold text-red margin-top-sm">{{item.salesPrice}}</text>
+                  </view>
+                  <view class="flex-twice text-right margin-right-sm">
+                    x{{item.quantity}}
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="cu-item margin-top-sm">
+          <view class="content">
+            <text class="text-grey">订单金额</text>
+          </view>
+          <view class="action">
+            <view class="text-price">{{salesPrice}}</view>
+          </view>
+        </view>
+        <view class="cu-item margin-top-sm">
+          <view class="content">
+            <text class="text-grey">运费金额</text>
+          </view>
+          <view class="action">
+            <view class="text-price">{{freightPrice}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <view class="cu-card mar-top-30">
+    <view class="cu-item cu-form-group align-start">
+      <input bindinput="userMessageInput" placeholder="给卖家留言"></input>
+    </view>
+	</view>
+</view>
+<view class="cu-bar bg-white border foot">
+  <view class="flex response">
+    <view class="flex-sub"></view>
+    <view class="flex-treble bar-rt">
+      <text class="text-sm text-gray">共{{ orderConfirmData.length }}件，</text>
+      <text class="text-xs text-bold">合计：</text>
+      <text class="text-xl text-price text-red">{{numberUtil.numberAddition(paymentPrice,freightPrice)}}</text>
+      <button class="cu-btn bg-red round lg margin-left-sm" bindtap="orderSub" loading="{{loading}}" disabled="{{loading}}" type="">
+        提交订单
+      </button>
+    </view>
+  </view>
+</view>

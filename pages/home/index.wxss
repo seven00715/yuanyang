@@ -1,0 +1,92 @@
+.list-item{
+  background-color: #fff
+}
+
+.wrapper-list{white-space:nowrap;padding:15rpx 5rpx;}
+.wrapper-list .item{display:inline-block;width:322rpx;margin-right:20rpx; height: 264rpx}
+.wrapper-list .item:nth-last-child(1){margin-right:0;}
+.wrapper-list .item .img-box{width:100%;height:183rpx;}
+.wrapper-list .item .img-box image{width:100%;height:100%;border-radius:12rpx 12rpx 0 0;}
+
+.consite-wraper .item{display:inline-block;width:322rpx;margin-right:20rpx; height: 334rpx;}
+.consite-wraper .item .img-box{width:100%;height:264rpx;}
+.adsec{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 7rpx 10rpx;
+  height: 80rpx;
+}
+.adsec-icon{
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.swiper_container {
+  height: 80rpx;
+  width: 95%;
+  line-height: 80rpx;
+}
+.bg-hot{width:100%;background:#aaaaaa;
+   background-size:100% 60%;padding:0 30rpx;box-sizing:border-box;background-color: #fff;
+  margin-top: 30rpx;
+  }
+  .active-wraper{
+    padding-bottom: 15rpx;
+  }
+   .active-wraper .btn-wraper{
+     height: 120rpx;
+   } 
+     .active-wraper .btn-wraper button{
+       width:174rpx;
+height:55rpx;
+line-height: 55rpx;
+border-radius: 115rpx;
+font-size:26rpx;
+font-weight:400;
+color:rgba(255,255,255,1);
+background: #6A8BDA;
+     }
+  .bg-hot   .bom-waper{
+  padding-right: 24rpx;
+     }
+.bg-hot .active-item{
+  height: 363rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin-bottom: 35rpx;
+  box-shadow: 3px 3px 10px rgba(0,0,0,.2);
+}
+
+.bg-hot .active-item .ac-info{
+  padding-left: 20rpx;
+} 
+.bg-hot .active-item .ac-title{
+font-size:27rpx;
+font-weight:400;
+color:rgba(52,52,52,1);
+margin-top: 26rpx;
+margin-bottom: 18rpx;
+}
+.bg-hot .active-item .icon {
+  width: 34rpx;
+  height: 34rpx;
+  line-height: 34rpx;
+  text-align: center;
+  border-radius: 5rpx;
+font-size:21rpx;
+font-weight:400;
+color:rgba(255,255,255,1);
+background: #D96060;
+margin-right: 11rpx;
+}
+.bg-hot .active-item .as-time{
+font-size:22rpx;
+font-weight:400;
+color:rgba(156,156,156,1);
+}
+.bg-hot .active-item image{
+    width: 100%;
+    height: 220rpx;
+}

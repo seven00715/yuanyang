@@ -1,0 +1,6 @@
+var slice = function slice(arr, start, end) {
+  console.log(arr)
+  return arr.slice(start, end);
+}
+
+module.exports.slice = slice;

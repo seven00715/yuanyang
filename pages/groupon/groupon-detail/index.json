@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "发起拼团",
+  "usingComponents": {
+    "user-auth": "/components/user-auth/index",
+    "poster": "/components/wxa-plugin-canvas/poster/index",
+    "count-down": "/components/count-down/index"
+  }
+}

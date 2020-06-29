@@ -1,0 +1,26 @@
+
+<view class="bg-gradual-red text-center padding">
+  <view class="text-xl">
+    <text class="cuIcon-medalfill">当前{{userInfo.pointsCurrent}}个积分</text>
+  </view>
+  <view class="margin-top-sm">
+    <text>用户积分明细</text>
+  </view>
+</view>
+<view class="cu-list menu">
+  <view class="cu-item" wx:for="{{pointsRecord}}" wx:key="index">
+    <view class="content padding-tb-sm">
+      <view>
+        {{item.description}}
+      </view>
+      <view class="text-gray text-sm">
+        {{item.createTime}}
+      </view>
+    </view>
+    <view class="action">
+      <text class="text-bold text-green margin-right-xs" wx:if="{{item.amount > 0}}">+{{item.amount}}</text>
+      <text class="text-bold text-red margin-right-xs" wx:if="{{item.amount < 0}}">{{item.amount}}</text>
+    </view>
+  </view>
+</view>
+<view class="cu-load bg-gray {{loadmore?'loading':'over'}}"></view>

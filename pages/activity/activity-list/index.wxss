@@ -1,0 +1,109 @@
+/* 我参与的活动 */
+
+.active-container {
+  background: #fff;
+  min-height: 100vh;
+  padding-top: 20rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+.active-container .bg-hot {
+  padding: 10rpx 30prx;
+}
+
+.wrapper-list {
+  white-space: nowrap;
+  padding: 15rpx 5rpx;
+}
+
+.wrapper-list .item {
+  display: inline-block;
+  width: 322rpx;
+  margin-right: 20rpx;
+  height: 264rpx;
+}
+
+.wrapper-list .item:nth-last-child(1) {
+  margin-right: 0;
+}
+
+.wrapper-list .item .img-box {
+  width: 100%;
+  height: 183rpx;
+}
+
+.wrapper-list .item .img-box image {
+  width: 100%;
+  height: 100%;
+  border-radius: 12rpx 12rpx 0 0;
+}
+
+.active-wraper {
+  padding-bottom: 15rpx;
+}
+
+.active-wraper .btn-wraper {
+  height: 120rpx;
+}
+
+.active-wraper .btn-wraper button {
+  width: 174rpx;
+  height: 55rpx;
+  line-height: 55rpx;
+  border-radius: 115rpx;
+  font-size: 26rpx;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  background: #6a8bda;
+}
+
+.bg-hot   .bom-waper {
+  padding-right: 24rpx;
+}
+
+.bg-hot .active-item {
+  height: 363rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin-bottom: 35rpx;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.bg-hot .active-item .ac-info {
+  padding-left: 20rpx;
+}
+
+.bg-hot .active-item .ac-title {
+  font-size: 27rpx;
+  font-weight: 400;
+  color: rgba(52, 52, 52, 1);
+  margin-top: 26rpx;
+  margin-bottom: 18rpx;
+}
+
+.bg-hot .active-item .icon {
+  width: 34rpx;
+  height: 34rpx;
+  line-height: 34rpx;
+  text-align: center;
+  border-radius: 5rpx;
+  font-size: 21rpx;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  background: #d96060;
+  margin-right: 11rpx;
+}
+
+.bg-hot .active-item .as-time {
+  font-size: 22rpx;
+  font-weight: 400;
+  color: rgba(156, 156, 156, 1);
+}
+
+.bg-hot .active-item image {
+  width: 100%;
+  height: 220rpx;
+}

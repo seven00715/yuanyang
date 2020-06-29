@@ -1,0 +1,60 @@
+
+/* 我参与的活动 */
+
+.my-active-top {
+  padding: 30rpx 26rpx;
+  border-bottom: 0.5 solid #c6c6c6;
+  margin-bottom: 33px;
+}
+.active-list{
+  background-color: var(--white);
+  padding-left: 32rpx;
+  padding-right: 64rpx;
+}
+.active-list-item {
+  padding: 17rpx 0 20rpx 0;
+}
+
+
+.active-img {
+  width: 184rpx;
+  height: 129rpx;
+  background: #969;
+  margin-right: 28rpx;
+  border-radius: 10px;
+}
+
+.active-right {
+  width: 483rpx;
+  height: 129rpx;
+}
+
+.active-right-top {
+  font-size: 27rpx;
+  color: #000000;
+}
+
+.active-right-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 22rpx;
+  color: #a8a8a8;
+}
+
+.active-more {
+  color: #6a90df;
+}
+
+.active-more .cuIcon-right::before {
+  color: #6a90df;
+  vertical-align: middle;
+  font-size: 22rpx;
+}
+
+/* 身份验证 */
+
+.auth {
+  padding: 33rpx 26rpx;
+}
