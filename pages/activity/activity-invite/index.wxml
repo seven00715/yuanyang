@@ -43,7 +43,8 @@
     </view>
 
     <rich-text class="uninviter-number" type="p">还差{{activeInfo.inviteNum}}人达成</rich-text>
-    <image ontap="onInvite" src="../../../assets/invite-button.png" class="signbut"></image>
+    
+    <button class="share-button" open-type="share"><image ontap="onInvite" src="../../../assets/invite-button.png" class="signbut"></image></button>
   </view>
   <!-- 活动规则 -->
   <view class="active-rule">

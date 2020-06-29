@@ -8,7 +8,12 @@ Page({
     activeInfo:{},
     id: null,
     type:null,
-    optData: {}
+    optData: {},
+    shareData: {
+      path: '',
+      imageUrl: '',
+      title: ''
+    }
   },
 
   /**
@@ -22,6 +27,7 @@ Page({
       type:options.type
     })
     this.fetchAcDetail(options)
+    this.onInvite()
   },
 
   /**
@@ -69,7 +75,29 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage () {
+    const shareData = this.data.shareData
+    return {
+      title: shareData.title,
+      path: shareData.path,
+      imageUrl: shareData.imageUrl,
+      success: function (res) {
+        console.log('share res', res)
+        if (res.errMsg == 'shareAppMessage:ok') {
+          console.log(res.errMsg)
+          wx.showToast({
+            title: '分享成功',
+            icon: 'succes',
+            mask: true
+          })
+        }
+      },
+      fail: function (res) {
+        console.log('fail res', res)
+        // 转发失败
+      }
+    }
+    
   },
   async fetchAcDetail(options){
     let { data } = await app.api.fetchAcDetail(options.id, { type: options.type})
@@ -90,17 +118,17 @@ Page({
       activityId: this.optData.id
     })
     if (res.code === 0) {
-      wx.showToast({
-        title: res.data,
-        icon: 'succes',
-        mask: true
+      const { data } = res
+      this.setData({
+        shareData: data
       })
+    
     } else {
-      wx.showToast({
-        title: "报名失败，请重试",
-        icon: 'succes',
-        mask: true
-      })
+      // wx.showToast({
+      //   title: "报名失败，请重试",
+      //   icon: 'succes',
+      //   mask: true
+      // })
     }
   }
 })

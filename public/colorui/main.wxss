@@ -3971,3 +3971,9 @@ scroll-view.cu-steps .cu-item {
 	color: var(--co80);
 }
 /* =============我的 */
+.share-button{
+  background-color: transparent;
+}
+.share-button::after{
+ border: none;
+}
