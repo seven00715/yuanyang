@@ -52,7 +52,7 @@
 </view> -->
 <view class="page-body">
   <view class="project-title">
-    <button size="mini" wx:for="{{projectList}}" wx:key="index" class="projectLabel {{item.code==clickCode?'clickStyle':''}}" bindtap="clickStyle" data-index='{{item}}'>{{item.name}}</button>
+    <button size="mini" wx:for="{{projectList}}" wx:key="index" class="projectLabel {{item.id==clickCode?'clickStyle':''}}" bindtap="clickStyle" data-index='{{item}}'>{{item.name}}</button>
   </view>
   <view class="project">
     <view class="project-list" wx:for="{{projectInfo}}" wx:key="index">

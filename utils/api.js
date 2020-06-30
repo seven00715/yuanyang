@@ -300,4 +300,8 @@ module.exports = {
   liveRoomInfoList: (data) => { //获取直播房间列表
     return request('/weixin/api/ma/wxmalive/roominfo/list', 'get', data, true)
   },
+  saveUserSurvey: (data) => { //获取直播房间列表
+    return request('/api/ma/yysurvey/saveUserSurvey', 'post', data, true)
+  },
+ 
 }

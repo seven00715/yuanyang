@@ -67,6 +67,21 @@ Page({
   onShareAppMessage: function () {
 
   },
+  //跳转到报名信息页面
+  jumpToInput(e) {
+    console.log(e,'传递的e')
+    wx.navigateTo({
+      url: "/pages/activity/activity-userInfo/index",
+      success: function (res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', {
+          activitycolumn1: e.currentTarget.dataset.activitycolumn1,
+          id: e.currentTarget.dataset.id
+        })
+      }
+    })
+  },
+  // 直接报名
   async signActive(id){
     console.log('signActive activeInfo', this.activeInfo)
    const res =await app.api.signActive({

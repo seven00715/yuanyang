@@ -27,7 +27,8 @@ Page({
     const res = await app.api.research()
     if(res.code === 0){
       this.setData({
-        formData : res.data.survey_form
+        formData : res.data.survey_form,
+        surveyId: res.data.id
       })
     }
     console.log('res', res)
@@ -64,12 +65,30 @@ Page({
     })
   },
 
-  formSubmit(e) {
+  async formSubmit(e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    let value = e.detail.value
+    console.log(value)
+    for (let key in value){
+      console.log(key, value[key])
+      this.data.formData.forEach((item,index)=>{
+        let data = `formData[${index}].value`
+        if (item.question === key){
+          console.log(data)
+          this.setData({
+            [data]:value[key]
+          })
+        }
+      })
+    }
+
+    let res = await app.api.saveUserSurvey({surveyId: this.data.surveyId, surveyJson:this.data.formData })
+    
   },
 
   formReset(e) {
     console.log('form发生了reset事件，携带数据为：', e.detail.value)
+
     this.setData({
       chosen: ''
     })

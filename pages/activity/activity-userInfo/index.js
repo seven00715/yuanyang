@@ -86,6 +86,19 @@ Page({
 
   },
   async formSubmit(){
-    await app.api
+    const res = await app.api.signActive({ id: this.data.id, externInfo: this.data.activitycolumn1})
+    if (res.code === 0) {
+      wx.showToast({
+        title: res.data,
+        icon: 'succes',
+        mask: true
+      })
+    } else {
+      wx.showToast({
+        title: "报名失败，请重试",
+        icon: 'succes',
+        mask: true
+      })
+    }
   }
 })
