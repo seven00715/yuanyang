@@ -65,7 +65,7 @@
         "pagePath": "pages/live/live-new/index",
         "iconPath": "public/img/live.png",
         "selectedIconPath": "public/img/live@selected.png",
-        "text": "直播new"
+        "text": "直播"
       },
       {
         "pagePath": "pages/user/user-center/index",
