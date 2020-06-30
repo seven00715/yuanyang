@@ -141,6 +141,7 @@ module.exports = {
     return request(`/mall/api//ma/yyactivity/detail/${id}`, 'get', data, false)
   },
   fetchNewsList: (data) => { // 0:资讯，1:交付展示，2:工程进度
+    console.log('fetchNewsList--',data)
     return request('/mall/api/ma/yyfreshnews/page', 'get', data, false)
   },
   fetchLiveList: (data) => { // 录播列表

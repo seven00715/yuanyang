@@ -8,6 +8,11 @@ Page({
    */
   data: {
     newsList: [],
+    page: {
+      page: 1,
+      size: 10,
+    },
+    loadmore: true,
   },
 
   /**
@@ -21,34 +26,31 @@ Page({
   },
   loadData() {
     this.fetchNewsList()
+    
     // this.fetchTypeList()
     // this.goodsNew()
     // this.goodsHot()
     // this.goodsPage()
   },
-  
-  fetchTypeList() {
-      app.api.fetchTypeList({
-    })
-      .then(res => {
-        let newsList = res.data.records
-        this.setData({
-          newsList: newsList
-        })
-      })
-  },
   // 资讯
   fetchNewsList() {
     app.api.fetchNewsList({
+      ...this.data.page,
       type: 0
     })
       .then(res => {
         let newsList = res.data.records
         this.setData({
-          newsList: newsList
+          newsList: [...this.data.newsList, ...newsList]
         })
+        if (newsList.length < this.data.page.size) {
+          this.setData({
+            loadmore: false
+          })
+        }
       })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -87,10 +89,14 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
+  onReachBottom() {
+    if (this.data.loadmore) {
+      this.setData({
+        ['page.page']: this.data.page.page + 1
+      })
+      this.fetchNewsList()
+    }
   },
-
   /**
    * 用户点击右上角分享
    */
