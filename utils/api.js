@@ -119,6 +119,9 @@ module.exports = {
     return request('/mall/api/ma/goodscategory/tree', 'get', data, true)
   },
   //---------------
+  saveUserSurvey: (data) => { // 保存问卷调查
+    return request('/mall/api/ma/yysurvey/saveUserSurvey', 'post', data, true)
+  },
   // 立即报名
   signActive: (data) => { // type
     return request('/mall/api/ma/yyactivity/signUp', 'post', data, false)
@@ -144,8 +147,11 @@ module.exports = {
     console.log('fetchNewsList--',data)
     return request('/mall/api/ma/yyfreshnews/page', 'get', data, false)
   },
-  fetchLiveList: (data) => { // 录播列表
-    return request('/mall/api/ma/yylivebroadcast/page', 'get', data, false)
+  fetchLiveList: (data) => { // 直播列表
+     return request('/mall/api/ma/yylivebroadcast/page', 'get', data, false)
+  }, 
+  fetchReplayList: (data) => { // 录播列表
+    return request('/mall/api/ma/yylivereplay/page', 'get', data, false)
   },
   fetchNewsTypes: (id) => { // 工程进度类目(id)
     return request('/mall/api/ma/yyproject/' + id, 'get', false)
@@ -300,8 +306,6 @@ module.exports = {
   liveRoomInfoList: (data) => { //获取直播房间列表
     return request('/weixin/api/ma/wxmalive/roominfo/list', 'get', data, true)
   },
-  saveUserSurvey: (data) => { //获取直播房间列表
-    return request('/api/ma/yysurvey/saveUserSurvey', 'post', data, true)
-  },
+
  
 }

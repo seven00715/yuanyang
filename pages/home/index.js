@@ -16,12 +16,30 @@ Page({
     projectList: [],
     activeList: []
   },
-  goHouse(){
+  async signActive(id) {
+    console.log('signActive activeInfo', this.activeInfo)
+    const res = await app.api.research()
+    if (res.code === 0) {
+      const { isJoin } = res.data
+      if (isJoin === 1) {
+        wx.showToast({
+          title: "您已参加过此问卷",
+          icon: 'error',
+          mask: true
+        })
+      } else {
+        wx.navigateTo({
+          url: '/pages/research/index',
+        })
+      }
+    }
+  },
+  goHouse() {
     wx.navigateToMiniProgram({
       appId: 'wxbadc8fcc8f753243'
     })
   },
-  goHotLine(){
+  goHotLine() {
     wx.makePhoneCall({
       phoneNumber: '18686168810' //仅为示例，并非真实的电话号码
     })
@@ -48,18 +66,18 @@ Page({
     // this.goodsHot()
     // this.goodsPage()
   },
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
     let title = '悦生活'
     let path = 'pages/home/index'
     return {
       title: title,
       path: path,
-      success: function(res) {
+      success: function (res) {
         if (res.errMsg == 'shareAppMessage:ok') {
           console.log(res.errMsg)
         }
       },
-      fail: function(res) {
+      fail: function (res) {
         // 转发失败
       }
     }
@@ -67,9 +85,9 @@ Page({
   //获取轮播图
   swiperGet() {
     app.api.noticeGet({
-        type: '1',
-        enable: '1'
-      })
+      type: '1',
+      enable: '1'
+    })
       .then(res => {
         let notice = res.data
         if (notice) {
@@ -82,8 +100,8 @@ Page({
 
   fetchNewsList() {
     app.api.fetchNewsList({
-        type: 0,
-      })
+      type: 0,
+    })
       .then(res => {
         let newsList = res.data.records
         this.setData({
@@ -93,8 +111,8 @@ Page({
   },
   fetchProjectList() {
     app.api.fetchNewsList({
-        type: 2,
-      })
+      type: 2,
+    })
       .then(res => {
         let projectList = res.data.records
         this.setData({
@@ -105,11 +123,11 @@ Page({
   //新品首发
   goodsNew() {
     app.api.goodsPage({
-        searchCount: false,
-        current: 1,
-        size: 5,
-        descs: 'create_time'
-      })
+      searchCount: false,
+      current: 1,
+      size: 5,
+      descs: 'create_time'
+    })
       .then(res => {
         let goodsListNew = res.data.records
         this.setData({
@@ -134,9 +152,9 @@ Page({
   //  活动接口
   fetchAcList() {
     app.api.fetchAcList({
-        current: 1,
-        size: 20
-      })
+      current: 1,
+      size: 20
+    })
       .then(res => {
         let activeList = res.data.records.slice(0, 2)
         this.setData({
@@ -146,11 +164,11 @@ Page({
   },
   goodsHot() {
     app.api.goodsPage({
-        searchCount: false,
-        current: 1,
-        size: 5,
-        descs: 'sale_num'
-      })
+      searchCount: false,
+      current: 1,
+      size: 5,
+      descs: 'sale_num'
+    })
       .then(res => {
         let goodsListHot = res.data.records
         this.setData({

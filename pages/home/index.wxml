@@ -20,10 +20,10 @@
         <text class="text-black">热线咨询</text>
     </view>
     <view class="cu-item">
-      <navigator url="/pages/research/index" hover-class="none">
+      <view ontap="signActive">
         <view class="lg text-green iconfont iconresearch"></view>
         <text class="text-black">参与调研</text>
-      </navigator>
+      </view>
     </view>
     <view class="cu-item">
       <navigator url="/pages/delivery/delivery-type/index" hover-class="none">

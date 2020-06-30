@@ -40,10 +40,6 @@ Page({
     }
   },
 
-  // 
-
- 
-
   pickerConfirm(e) {
     this.setData({
       pickerHidden: true
@@ -82,7 +78,14 @@ Page({
       })
     }
 
-    let res = await app.api.saveUserSurvey({surveyId: this.data.surveyId, surveyJson:this.data.formData })
+    let res = await app.api.saveUserSurvey({ surveyId: this.data.surveyId, answer_form:this.data.formData })
+    if(res.code === 0){
+      wx.showToast({
+        title: '问卷提交成功',
+        icon: 'succes',
+        mask: true
+      })
+    }
     
   },
 

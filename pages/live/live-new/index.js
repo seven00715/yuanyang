@@ -6,12 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    liveList: []
+    liveList: [],
+    replayList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
-   */
+  */
   onLoad: function (options) {
     app.initPage()
       .then(res => {
@@ -21,6 +22,20 @@ Page({
   },
   loadData(){
     this.fetchLiveList()
+    this.fetchReplayList()
+  },
+  
+  fetchReplayList() {
+    app.api.fetchReplayList({
+      current: 1,
+      size: 20
+    })
+      .then(res => {
+        let replayList = res.data.records
+        this.setData({
+          replayList: replayList
+        })
+      })
   },
   fetchLiveList() {
     app.api.fetchLiveList({

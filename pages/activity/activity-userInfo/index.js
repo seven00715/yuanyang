@@ -86,7 +86,7 @@ Page({
 
   },
   async formSubmit(){
-    const res = await app.api.signActive({ id: this.data.id, externInfo: this.data.activitycolumn1})
+    const res = await app.api.signActive({ activityId: this.data.id, externInfo: JSON.stringify(this.data.activitycolumn1)})
     if (res.code === 0) {
       wx.showToast({
         title: res.data,

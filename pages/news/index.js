@@ -9,7 +9,7 @@ Page({
   data: {
     newsList: [],
     page: {
-      page: 1,
+      current: 1,
       size: 10,
     },
     loadmore: true,
@@ -92,7 +92,7 @@ Page({
   onReachBottom() {
     if (this.data.loadmore) {
       this.setData({
-        ['page.page']: this.data.page.page + 1
+        ['page.current']: this.data.page.current + 1
       })
       this.fetchNewsList()
     }
