@@ -1,7 +1,29 @@
+.page-body {
+  background-color: #ffffff;
+}
+
+.title {
+  text-align: center;
+  font-size: 30rpx;
+  padding: 20rpx;
+}
+
+.active-from {
+  border: 1rpx solid #000;
+}
 .page-section {
-  padding: 10rpx
+  padding: 20rpx;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  font-size: 26rpx;
 }
 input {
   background-color: #fff;
-  margin: 10rpx 0;
+  margin: 0 10rpx;
+  border: 1rpx solid #000;
+  width: 60%;
+  border-radius: 10rpx;
+  height: 30rpx;
+  padding: 4rpx 16rpx;
 }

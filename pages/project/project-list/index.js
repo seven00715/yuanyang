@@ -4,23 +4,14 @@ const app = getApp()
 
 Page({
   data: {
-    projectList:[
-      {name:'全部',code:'01'},
-      { name: '远洋悦·光年', code: '02' },
-      { name: '远洋·未来城', code: '03' },
-      { name: '远洋·简宫', code: '04' },
-      { name: '远洋·万和四季', code: '05' },
-      { name: '远洋·鲲栖符', code: '06' },
-      {name:'远洋·天著春秋',code:'07'},
-      {name:'更多',code:'08'},
-    ],
-    clickCode:'01',
-    projectInfo:[
-      { createTime: '2020年05月27日', title: '远洋未来城项目信息', abstractText: ['B5#一层墙柱模板安排','C1#地下室顶层钢筋完成80%']},
-      { createTime: '2020-05-27', title: '远洋悦·光年项目信息', abstractText: ['C1#一段一层墙柱墙柱钢筋绑扎', 'C2#二段一层钢筋绑扎']},
-      { createTime: '2020-05-27', title: '远洋·万和司机项目信息', abstractText: ['A5#地下室顶板模板安装', 'A3#地下室钢筋绑扎30%']},
-      { createTime: '2020-05-27', title: '远洋·光年项目信息', abstractText: ['C2#一段一层墙柱墙柱钢筋绑扎', 'C2#一段一层钢筋绑扎']},
-      { createTime: '2020-05-27', title: '远洋·光年项目信息', abstractText: ['C2#一段一层墙柱墙柱钢筋绑扎', 'C2#一段一层钢筋绑扎']},
+    projectList: [],
+    clickCode: '',
+    projectInfo: [
+      { createTime: '2020年05月27日', title: '远洋未来城项目信息', abstractText: ['B5#一层墙柱模板安排', 'C1#地下室顶层钢筋完成80%'] },
+      { createTime: '2020-05-27', title: '远洋悦·光年项目信息', abstractText: ['C1#一段一层墙柱墙柱钢筋绑扎', 'C2#二段一层钢筋绑扎'] },
+      { createTime: '2020-05-27', title: '远洋·万和司机项目信息', abstractText: ['A5#地下室顶板模板安装', 'A3#地下室钢筋绑扎30%'] },
+      { createTime: '2020-05-27', title: '远洋·光年项目信息', abstractText: ['C2#一段一层墙柱墙柱钢筋绑扎', 'C2#一段一层钢筋绑扎'] },
+      { createTime: '2020-05-27', title: '远洋·光年项目信息', abstractText: ['C2#一段一层墙柱墙柱钢筋绑扎', 'C2#一段一层钢筋绑扎'] },
     ],
     page: {
       searchCount: false,
@@ -196,29 +187,42 @@ Page({
     this.fetchNewsList()
     this.fetchNewsTypes()
   },
-  clickStyle(item){
-    console.log(item.currentTarget.dataset.index.code)
-    var code = item.currentTarget.dataset.index.code
+  clickStyle(item) {
+    console.log(item.currentTarget.dataset.index.id)
+    var code = item.currentTarget.dataset.index.id
     this.setData({
       clickCode: code
     })
+    this.fetchNewsList(code)
   },
   // 获取工程进度数据
-  async fetchNewsList(){
-    let { data: { records}} = await app.api.fetchNewsList({type:2})
-    // console.log(records)
-    records.forEach((item)=>{
-      item.abstractText = item.abstractText.split()
-      console.log(item)
-    })
+  async fetchNewsList(code) {
+    let projectInfo = []
+    if (code) {
+      let { data: { records } } = await app.api.fetchNewsList({ type: 2, id: code })
+      projectInfo = records
+    } else {
+      let { data: { records } } = await app.api.fetchNewsList({ type: 2 })
+      projectInfo = records
+    }
 
+    // console.log(records)
+    projectInfo.forEach((item) => {
+      item.abstractText = item.abstractText.split()
+      // console.log(item)
+    })
+    console.log(projectInfo)
     this.setData({
-      projectInfo: records
+      projectInfo: projectInfo
     })
   },
   // 获取项目类目
-  async fetchNewsTypes (){
-    let res = await app.api.fetchNewsTypes(2)
-    console.log(res)
+  async fetchNewsTypes() {
+    let { data: { records } } = await app.api.fetchTypeList()
+    // console.log(records, '------')
+    records.unshift({ name: '全部', id: '' })
+    this.setData({
+      projectList: records
+    })
   }
 })

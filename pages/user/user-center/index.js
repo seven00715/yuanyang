@@ -1,4 +1,3 @@
-
 const app = getApp()
 
 Page({
@@ -8,13 +7,13 @@ Page({
     orderCountAll: [],
     activeList: []
   },
-  onShow(){
+  onShow() {
     //更新tabbar购物车数量
     wx.setTabBarBadge({
       index: 2,
       text: app.globalData.shoppingCartCount + ''
     })
-    
+
     let wxUser = app.globalData.wxUser
     this.setData({
       wxUser: wxUser
@@ -23,14 +22,13 @@ Page({
     this.fetchNewsList()
     // this.orderCountAll()
   },
-  onLoad(){
-  },
+  onLoad() {},
   /**
    * 小程序设置
-  */
-  settings: function () {
+   */
+  settings: function() {
     wx.openSetting({
-      success: function (res) {
+      success: function(res) {
         console.log(res.authSetting)
       }
     })
@@ -38,11 +36,11 @@ Page({
   // 活动列表
   fetchNewsList() {
     app.api.fetchAcList({
-      current: 1,
-      size: 20
-    })
+        current: 1,
+        size: 20
+      })
       .then(res => {
-        let activeList = res.data.records.slice(0,2)
+        let activeList = res.data.records.slice(0, 2)
         this.setData({
           activeList: activeList
         })
@@ -52,9 +50,16 @@ Page({
   jumpToactive(e) {
     console.log('center e', e)
     const item = e.target.dataset.item
-    wx.navigateTo({
-      url: `/pages/activity/activity-invite/index?id=${item.id}&type=${item.type}`
-    })
+    const type = e.target.dataset.item.type
+    if (item.type === 1) {
+      wx.navigateTo({
+        url: `/pages/activity/activity-signUp/index?id=${item.id}&type=${item.type}`
+      })
+    } else if (item.type === 2) {
+      wx.navigateTo({
+        url: `/pages/activity/activity-invite/index?id=${item.id}&type=${item.type}`
+      })
+    }
   },
   agreeGetUser(e) {
     if (e.detail.errMsg == 'getUserInfo:ok') {
@@ -70,7 +75,7 @@ Page({
     }
   },
   //获取商城用户信息
-  userInfoGet(){
+  userInfoGet() {
     app.api.userInfoGet()
       .then(res => {
         this.setData({
@@ -78,7 +83,7 @@ Page({
         })
       })
   },
-  orderCountAll(){
+  orderCountAll() {
     app.api.orderCountAll()
       .then(res => {
         this.setData({

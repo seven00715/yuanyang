@@ -23,7 +23,7 @@
       <view class="h4">快来报名参加抽奖活动</view>
       <view class="p">报名时间: {{activeInfo.startTime}} - {{activeInfo.endTime}}</view>
       <view class="p">活动城市: {{activeInfo.activityCity}}</view>
-      <image ontap="signActive" src="../../../assets/signactive-03.png" class="signbut"></image>
+      <image ontap="jumpToInput" data-activityColumn1="{{activeInfo.activityColumn1}}" data-id="{{activeInfo.id}}" src="../../../assets/signactive-03.png" class="signbut"></image>
     </view>
     <view class="active-step2-content" wx:if="{{tabIndex=='1'}}">
       <view class="h4">{{activeInfo.lottery}}</view>
