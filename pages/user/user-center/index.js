@@ -49,8 +49,8 @@ Page({
 
   jumpToactive(e) {
     console.log('center e', e)
-    const item = e.target.dataset.item
-    const type = e.target.dataset.item.type
+    const item = e.currentTarget.dataset.item
+    const type = e.currentTarget.dataset.item.type
     if (item.type === 1) {
       wx.navigateTo({
         url: `/pages/activity/activity-signUp/index?id=${item.id}&type=${item.type}`

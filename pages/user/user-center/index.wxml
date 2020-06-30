@@ -22,19 +22,19 @@
   </view>
   <!-- 活动列表 -->
   <view class="active-list">
-    <view class="active-list-item" bindtap="jumpToactive" data-item="{{item}}" wx:for="{{activeList}}" wx:key="id" data-id="item.id">
+    <view class="active-list-item" ontap="jumpToactive" data-item="{{item}}" wx:for="{{activeList}}" wx:key="id" data-id="item.id">
       <image class="active-img" src="{{item.coverImg}}"></image>
       <view class="active-right">
         <view class="active-right-top">{{item.title}}</view>
         <view class="active-right-bottom">
           <view class="active-time">活动截止: {{item.endTime}} </view>
-          <view class="active-more"  data-item="{{item}}" >详情
+          <view class="active-more">详情
             <text class="cuIcon-right"></text>
           </view>
         </view>
       </view>
     </view>
-  
+
   </view>
 
   <!-- 身份验证 -->
