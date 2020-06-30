@@ -103,23 +103,23 @@
       <view class='action text-bold text-black'>
         工地展示
       </view>
-   
+
     </view>
     <view class='wrapper-list wrapper-list-radius bg-white radius row-wraper consite-wraper flex-row-between-start '>
       <block>
         <navigator hover-class="none" url='/pages/delivery/delivery-type/index?type=1' class='item'>
           <view class='img-box'>
-            <image src="{{projectList[0].imgUrl[0] ? projectList[0].imgUrl[0] : '/public/img/no_pic.png'}}"></image>
+            <image src="/public/img/delivery-show.png"></image>
           </view>
-          <view class='text-cut  pro-bom-title'>交付展示</view>
+          <!-- <view class='text-cut  pro-bom-title'>交付展示</view> -->
         </navigator>
       </block>
       <block>
         <navigator hover-class="none" url='/pages/project/project-list/index' class='item'>
           <view class='img-box'>
-            <image src="{{projectList[1].imgUrl[0] ? projectList[1].imgUrl[0] : '/public/img/no_pic.png'}}"></image>
+            <image  src="/public/img/pro-progress.png"></image>
           </view>
-          <view class='text-cut pro-bom-title'>工程进度</view>
+          <!-- <view class='text-cut pro-bom-title'>工程进度</view> -->
         </navigator>
       </block>
     </view>

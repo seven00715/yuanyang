@@ -143,7 +143,7 @@ module.exports = {
   fetchNewsList: (data) => { // 0:资讯，1:交付展示，2:工程进度
     return request('/mall/api/ma/yyfreshnews/page', 'get', data, false)
   },
-  fetchLiveList: (data) => { // 直播列表
+  fetchLiveList: (data) => { // 录播列表
     return request('/mall/api/ma/yylivebroadcast/page', 'get', data, false)
   },
   fetchNewsTypes: (id) => { // 工程进度类目(id)
