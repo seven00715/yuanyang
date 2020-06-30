@@ -6,8 +6,8 @@
       <image src="/public/img/car.jpg"></image>
     </view>
     <view class="live-info">
-      <view class="top-title">2020.04.08 远洋·琨庭正在直播</view>
-      <view class="top-times">2.5W次播放</view>
+      <view class="top-title">2020.04.08 {{name}}正在直播</view>
+      <view class="top-times">主播：{{anchorName}}</view>
     </view>
   </view>
   <view class="more-live">
@@ -19,13 +19,13 @@
       <view class="live-item flex-row-between" >
         <view class="live-item-left flex-row-start">
           <view class="live-img">
-            <image src="/public/img/car.jpg"></image>
+            <image src="{{item.url[0]}}"></image>
           </view>
-          <view class="live-text">2020年5月27日直播详情</view>
+          <view class="live-text">{{item.name}}</view>
         </view>
 
         <view class="handle-btn">
-          <image src="/public/img/car.jpg"></image>
+          <image src="/public/img/bom-pause.png"></image>
         </view>
       </view>
       <view class="line"></view>

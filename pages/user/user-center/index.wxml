@@ -18,7 +18,7 @@
   <!-- 我参与的活动 -->
   <view class="row-wraper my-active-top info-waper">
     <text class="text">我参与的活动</text>
-    <text class="cuIcon-down"></text>
+   <text class='cuIcon-right down-arrow'></text>
   </view>
   <!-- 活动列表 -->
   <view class="active-list">
@@ -28,7 +28,7 @@
         <view class="active-right-top">{{item.title}}</view>
         <view class="active-right-bottom">
           <view class="active-time">活动截止: {{item.endTime}} </view>
-          <view class="active-more" bindtap="jumpToactive" data-item="{{item}}" >详情
+          <view class="active-more"  data-item="{{item}}" >详情
             <text class="cuIcon-right"></text>
           </view>
         </view>
