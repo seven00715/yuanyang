@@ -147,6 +147,10 @@ module.exports = {
     console.log('fetchNewsList--',data)
     return request('/mall/api/ma/yyfreshnews/page', 'get', data, false)
   },
+  fetchDetailById: (id) => { // 根据id 获取详情
+    console.log('fetchNewsList--id', id)
+    return request(`/mall/api/ma/yyfreshnews/${id}`, 'get', "" , false)
+  },
   fetchLiveList: (data) => { // 直播列表
      return request('/mall/api/ma/yylivebroadcast/page', 'get', data, false)
   }, 

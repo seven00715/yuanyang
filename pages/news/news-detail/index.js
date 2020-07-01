@@ -1,46 +1,37 @@
-// pages/news/index.js
+const WxParse = require('../../../public/wxParse/wxParse.js')
 const app = getApp()
-
+// pages/news/news-detail/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    projectList: [],
-    page: {
-      current: 1,
-      size: 10,
-    },
-    loadmore: true,
+    id: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
+  onLoad: function (options) {
+    console.log('news-detail options', options)
+    this.data.id = Number(options.id)
     app.initPage()
       .then(res => {
         this.loadData()
       })
   },
   loadData() {
-    this.fetchTypeList()
+    //html转wxml
+    // WxParse.wxParse('description', 'html', goodsSpu.description, this, 0)
+    this.fetchDetail()
   },
-  fetchTypeList() {
-      app.api.fetchTypeList({
-        ...this.data.page,
-    })
+  fetchDetail() {
+    app.api.fetchDetailById(this.data.id)
       .then(res => {
-        let projectList = res.data.records
-        this.setData({
-          projectList: [...this.data.projectList, ...projectList]
-        })
-        if (projectList.length < this.data.page.size) {
-          this.setData({
-            loadmore: false
-          })
-        }
+        const { content } = res.data
+        console.log('fetchDetail',res)
+        WxParse.wxParse('description', 'html', content, this, 0)
       })
   },
   /**
@@ -81,14 +72,10 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom() {
-    if (this.data.loadmore) {
-      this.setData({
-        ['page.current']: this.data.page.current + 1
-      })
-      this.fetchTypeList()
-    }
+  onReachBottom: function () {
+
   },
+
   /**
    * 用户点击右上角分享
    */

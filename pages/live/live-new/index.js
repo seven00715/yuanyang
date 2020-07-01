@@ -7,7 +7,12 @@ Page({
    */
   data: {
     liveList: [],
-    replayList: []
+    replayList: [],
+    page: {
+      current: 1,
+      size: 10,
+    },
+    loadmore: true,
   },
 
   /**
@@ -33,8 +38,13 @@ Page({
       .then(res => {
         let replayList = res.data.records
         this.setData({
-          replayList: replayList
+          replayList: [...this.data.replayList, ...replayList]
         })
+        if (replayList.length < this.data.page.size) {
+          this.setData({
+            loadmore: false
+          })
+        }
       })
   },
   fetchLiveList() {
@@ -88,8 +98,13 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
+  onReachBottom() {
+    if (this.data.loadmore) {
+      this.setData({
+        ['page.current']: this.data.page.current + 1
+      })
+      this.fetchReplayList()
+    }
   },
 
   /**

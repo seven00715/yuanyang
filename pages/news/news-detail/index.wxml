@@ -1,0 +1,11 @@
+<!--pages/news/news-detail/index.wxml-->
+<view class='product-bg'>
+  <view class="cu-bar bg-white margin-top-sm">
+    <view class="content">商品信息</view>
+  </view>
+  <import src="/public/wxParse/wxParse.wxml"/>
+  <view class="bg-white">
+    <template is="wxParse" data="{{wxParseData:description.nodes}}" />
+  </view>
+  <view class="cu-load bg-gray to-down">已经到底啦...</view>
+</view>

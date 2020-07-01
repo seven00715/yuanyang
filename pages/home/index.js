@@ -35,9 +35,9 @@ Page({
     }
   },
   goHouse() {
-    wx.navigateToMiniProgram({
-      appId: 'wxbadc8fcc8f753243'
-    })
+      wx.navigateToMiniProgram({
+          appId: 'wx389b61b4be61cf31'
+      })
   },
   goHotLine() {
     wx.makePhoneCall({

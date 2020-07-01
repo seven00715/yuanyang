@@ -32,4 +32,5 @@
     </view>
     </view>
   </view>
+    <view class="cu-load bg-gray {{loadmore?'loading':'over'}}"></view>
 </view>

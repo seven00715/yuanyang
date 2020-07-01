@@ -9,6 +9,11 @@ Page({
   data: {
     options: {},
     newsList: [],
+    page: {
+      current: 1,
+      size: 10,
+    },
+    loadmore: true,
   },
 
   /**
@@ -28,13 +33,19 @@ Page({
   // 交付展示
   fetchNewsList() {
     app.api.fetchNewsList({
+      ...this.data.page,
       type: this.options.id
     })
       .then(res => {
         let newsList = res.data.records
         this.setData({
-          newsList: newsList
+          newsList: [...this.data.newsList, ...newsList]
         })
+        if (newsList.length < this.data.page.size) {
+          this.setData({
+            loadmore: false
+          })
+        }
       })
   },
   /**
@@ -75,10 +86,14 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
+  onReachBottom() {
+    if (this.data.loadmore) {
+      this.setData({
+        ['page.current']: this.data.page.current + 1
+      })
+      this.fetchNewsList()
+    }
   },
-
   /**
    * 用户点击右上角分享
    */

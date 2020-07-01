@@ -45,7 +45,10 @@ button::after {
 .project{
   padding: 16rpx 43rpx 43rpx;
 }
-
+.project-body{
+  min-height: 100vh;
+  background-color: #fff;
+}
 .time {
   font-size: 20rpx;
   color: #0E5D88;

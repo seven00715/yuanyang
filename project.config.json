@@ -162,6 +162,20 @@
 					"id": -1,
 					"name": "pages/activity/activity-userInfo/index",
 					"pathName": "pages/activity/activity-userInfo/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/news/news-detail/index",
+					"pathName": "pages/news/news-detail/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/news/index",
+					"pathName": "pages/news/index",
 					"scene": null
 				}
 			]

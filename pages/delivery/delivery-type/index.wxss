@@ -33,7 +33,11 @@
   height: 100%;
   border-radius: 12rpx 12rpx 0 0;
 }
-
+.wrapper-list-wraper .item .img-box image{
+  width: 100%;
+  height: 100%;
+  border-radius:0;
+}
 .consite-wraper .item {
   display: inline-block;
   width: 330rpx;
@@ -43,8 +47,8 @@
   background-color: #fff;
 }
 
-.consite-wraper .item .img-box {
-  width: 316rpx;
+.wrapper-list-wraper .consite-wraper .item .img-box {
+  width: 100%;
   height: 300rpx;
 }
 

@@ -50,22 +50,20 @@
   </view>
   <view class="cu-load bg-gray {{loadmore?'loading':'over'}}"></view>
 </view> -->
-<view class="page-body">
+<view class="page-body project-body">
   <view class="project-title">
     <button size="mini" wx:for="{{projectList}}" wx:key="index" class="projectLabel {{item.id==clickCode?'clickStyle':''}}" bindtap="clickStyle" data-index='{{item}}'>{{item.name}}</button>
   </view>
   <view class="project">
     <view class="project-list" wx:for="{{projectInfo}}" wx:key="index">
-    <view class="time">{{item.createTime}}</view>
-    <view class="project-content">
-      <text class="project-name">{{item.title}}</text>
-      <view class="project-progress"> 
-      <view class="project-progress-item" wx:for="{{item.abstractText}}" wx:key="index">{{item}}</view>
+      <view class="time">{{item.createTime}}</view>
+      <view class="project-content">
+        <text class="project-name">{{item.title}}</text>
+        <view class="project-progress">
+          <view class="project-progress-item" wx:for="{{item.abstractText}}" wx:key="index">{{item}}</view>
+        </view>
       </view>
-      
     </view>
-
-  </view> 
   </view>
-  
+  <view class="cu-load bg-gray {{loadmore?'loading':'over'}}"></view>
 </view>

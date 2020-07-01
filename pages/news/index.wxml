@@ -1,19 +1,21 @@
 <view>
   <!-- 活动列表 -->
-  <view class="active-list" wx:for="{{newsList}}">
-    <view class="flex-column-start-start item-wraper"> 
-      <view class="active-list-item flex-row-start-start">
-        <image class="active-img" src="{{item.imgUrl[0]}}" />
-        <view class="active-right flex-column-between-start">
-          <view class="active-right-top ac-title">{{item.abstractText}}</view>
-          <view class="active-right-bottom">
-            <view class="active-time ac-time">{{item.createTime}} </view>
+  <view class="active-list" wx:for="{{newsList}}" wx:key="index">
+    <view class="flex-column-start-start item-wraper">
+      <navigator hover-class='none' url='/pages/news/news-detail/index?id={{item.id}}'>
+        <view class="active-list-item flex-row-start-start" >
+          <image class="active-img" src="{{item.imgUrl[0]}}" />
+          <view class="active-right flex-column-between-start">
+            <view class="active-right-top ac-title">{{item.abstractText}}</view>
+            <view class="active-right-bottom">
+              <view class="active-time ac-time">{{item.createTime}} </view>
+            </view>
           </view>
         </view>
-        </view>
-      </view>
-      <view class="line">
+      </navigator>
+    </view>
+    <view class="line">
     </view>
   </view>
-   <view class="cu-load bg-gray {{loadmore?'loading':'over'}}"></view>
+  <view class="cu-load bg-gray {{loadmore?'loading':'over'}}"></view>
 </view>

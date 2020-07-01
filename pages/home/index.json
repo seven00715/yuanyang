@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "商城首页",
+  "navigationBarTitleText": "悦远洋",
   "enablePullDownRefresh": true,
   "usingComponents": {
     "goods-card": "/components/goods-card/index",

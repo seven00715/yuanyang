@@ -41,7 +41,8 @@
     "pages/delivery/delivery-list/index",
     "pages/delivery/delivery-type/index",
     "pages/live/live-new/index",
-    "pages/research/index"
+    "pages/research/index",
+    "pages/news/news-detail/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -77,7 +78,7 @@
   },
   "usingComponents": {},
   "navigateToMiniProgramAppIdList": [
-    "wx565dd5decbcc2ed0"
+    "wx9f4be390e1fee4f2"
   ],
   "plugins": {
     "live-player-plugin": {
