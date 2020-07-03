@@ -5,83 +5,76 @@ Page({
    * 页面的初始数据
    */
   data: {
-    activeInfo:{},
-    id: null,
-    type:null,
-    optData: {},
-    shareData: {
-      path: '',
+    isBeiPerson: false,
+    isEnd: false,
+    activeInfo: {},
+    optData: {
+      type: null,
+      activityId: '',
+      userId: "",
       imageUrl: '',
       title: ''
-    }
+    },
+    hasUserId: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    console.log("options", options)
-    this.optData = options
-    this.setData({
-      id: options.id,
-      type:options.type
-    })
-    this.fetchAcDetail(options)
+  onLoad: function(options) {
+    // 进入详情： activityId:活动id  type
+    // 被邀请人进入： activityId  userId
+    console.log("邀请options=====", options)
+    const tempOpt = this.data.optData
+    Object.assign(tempOpt, options)
+    if (options.hasOwnProperty("userId")){
+      this.setData({
+        optData: tempOpt,
+        isBeiPerson: true
+      })
+    } else {
+      this.setData({
+        optData: tempOpt,
+        isBeiPerson: false
+      })
+    }
+    // app.initPage()
+    //   .then(res => {
+    this.loadData()
+    // })
+
+  },
+  loadData() {
+    this.fetchAcDetail()
     this.onInvite()
+    if(this.data.isBeiPerson){
+      this.onFetchBeiInvite()
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+  async onFetchBeiInvite() {
+    const res = await app.api.fetchBeiInvite({
+      userId: this.data.optData.userId,
+      activityId: this.data.optData.activityId,
+    })
+    if (res.code === 0) {
+      wx.showToast({
+        title: res.data,
+        icon: 'succes',
+        mask: true
+      })
+    }
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage () {
-    const shareData = this.data.shareData
+  onShareAppMessage() {
     return {
-      title: shareData.title,
-      path: shareData.path,
-      imageUrl: shareData.imageUrl,
-      success: function (res) {
+      title: this.data.optData.title,
+      path: `pages/activity/activity-invite/index?userId=${this.data.optData.userId}&activityId=${this.data.optData.activityId}`,
+      imageUrl: this.data.optData.imageUrl,
+      success: function(res) {
         console.log('share res', res)
         if (res.errMsg == 'shareAppMessage:ok') {
           console.log(res.errMsg)
@@ -92,37 +85,62 @@ Page({
           })
         }
       },
-      fail: function (res) {
+      fail: function(res) {
         console.log('fail res', res)
         // 转发失败
       }
     }
-    
+
   },
-  async fetchAcDetail(options){
-    let { data } = await app.api.fetchAcDetail(options.id, { type: options.type})
+  async fetchAcDetail() {
+    console.log('fetchAcDetail',this.data.optData)
+    let {
+      data
+    } = await app.api.fetchAcDetail(this.data.optData.activityId)
     // data.prizes.push(...data.prizes)
     data.content = data.content.split("\n")
-    data.activityRule=data.activityRule.split('\n')
+    data.activityRule = data.activityRule.split('\n')
     data.yyActivityCalls.push(...data.yyActivityCalls)
     wx.setNavigationBarTitle({
       title: data.title
     })
-    this.setData({
-      activeInfo:data
-    })
+    let isEnd = data.isEnd
+    if(isEnd){
+      this.setData({
+        activeInfo: data,
+        isEnd: true
+      })
+    }else {
+      this.setData({
+        activeInfo: data,
+        isEnd:false
+      })
+    }
+ 
+  
   },
 
   async onInvite() {
     const res = await app.api.inviteJoin({
-      activityId: this.optData.id
+      activityId: this.data.optData.activityId
     })
     if (res.code === 0) {
-      const { data } = res
+      const {
+        data
+      } = res
+      console.log("onInvite res", data)
+      const resOpt = {
+        activityId: data.activityId,
+        userId: data.userId,
+        imageUrl: data.img[0],
+        title: data.title
+      }
+      const tempOpt = this.data.optData
+      Object.assign(tempOpt, resOpt)
       this.setData({
-        shareData: data
+        optData: tempOpt
       })
-    
+
     } else {
       // wx.showToast({
       //   title: "报名失败，请重试",

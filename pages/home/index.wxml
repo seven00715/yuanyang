@@ -6,15 +6,15 @@
     </swiper-item>
   </swiper>
 
-  <view class="cu-list grid col-5 no-border">
+  <view class="cu-list grid col-4 no-border">
     <view class="cu-item" ontap="goHouse">
         <view class="lg  text-orange iconfont iconhome" style="color: rgb(224, 96, 96)"></view>
         <text class="text-black">我要购房</text>
     </view>
-    <view class="cu-item">
+    <!-- <view class="cu-item">
         <view class="lg  text-red iconfont iconrecom"></view>
         <text class="text-black">我要推荐</text>
-    </view>
+    </view> -->
     <view class="cu-item" ontap="goHotLine">
         <view class="lg text-blue iconfont iconhot"></view>
         <text class="text-black">热线咨询</text>
@@ -46,7 +46,7 @@
 
     <view class='wrapper-list bg-white radius row-wraper  '>
       <block>
-        <navigator hover-class="none" url='/pages/goods/goods-detail/index?id={{newsList[0].id}}' class='item'>
+       <navigator hover-class='none'  wx-if="{{newsList[0]}}" url='/pages/news/news-detail/index?id={{newsList[0].id}}' class="item">
           <view class='img-box' wx-if="{{newsList[0]}}">
             <image src="{{newsList[0].imgUrl[0] || '/public/img/no_pic.png'}}"></image>
           </view>
@@ -54,7 +54,7 @@
         </navigator>
       </block>
       <block>
-        <navigator hover-class="none" wx-if="{{newsList[1]}}" url='/pages/goods/goods-detail/index?id={{newsList[1].id}}' class='item'>
+        <navigator hover-class="none" wx-if="{{newsList[1]}}" url='/pages/news/news-detail/index?id={{newsList[1].id}}' class='item'>
           <view class='img-box'>
             <image src="{{newsList[1].imgUrl[0]||'/public/img/no_pic.png'}}"></image>
           </view>

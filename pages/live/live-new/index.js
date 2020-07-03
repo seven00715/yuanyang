@@ -1,4 +1,5 @@
 // pages/live/live-new.js
+const util = require('../../../utils/util.js')
 const app = getApp()
 Page({
 

@@ -26,10 +26,10 @@ Page({
   },
   onShow() {
     //更新tabbar购物车数量
-    wx.setTabBarBadge({
-      index: 2,
-      text: app.globalData.shoppingCartCount + ''
-    })
+    // wx.setTabBarBadge({
+    //   index: 2,
+    //   text: app.globalData.shoppingCartCount + ''
+    // })
     app.initPage()
       .then(res => {
         this.shoppingCartPage()
@@ -54,10 +54,10 @@ Page({
       .then(res => {
         //更新购物车数量
         app.globalData.shoppingCartCount = res.data.total + ''
-        wx.setTabBarBadge({
-          index: 2,
-          text: app.globalData.shoppingCartCount + ''
-        })
+        // wx.setTabBarBadge({
+        //   index: 2,
+        //   text: app.globalData.shoppingCartCount + ''
+        // })
 
         let shoppingCartData = []
         //过滤出失效商品

@@ -40,6 +40,7 @@
     "pages/project/project-list/index",
     "pages/delivery/delivery-list/index",
     "pages/delivery/delivery-type/index",
+    "pages/delivery/delivery-detail/index",
     "pages/live/live-new/index",
     "pages/research/index",
     "pages/news/news-detail/index"

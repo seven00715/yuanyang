@@ -38,11 +38,11 @@
   </view>
 
   <!-- 身份验证 -->
-  <view class="info-name row-wraper info-waper auth">
+  <!-- <view class="info-name row-wraper info-waper auth">
     <text class="text">身份验证</text>
     <text class="info-right"> 未验证 <text class="cuIcon-right"></text>
     </text>
-  </view>
+  </view> -->
 </view>
 
 

@@ -137,11 +137,15 @@ module.exports = {
   fetchTypeList: (data) => { // type
     return request('/mall/api/ma/yyproject/page', 'get', data, false)
   },
+  // 被邀请人进来
+  fetchBeiInvite: (data) => { //活动列表
+    return request('/mall/api/ma/yyactivity/invite', 'get', data, false)
+  },
   fetchAcList: (data) => { //活动列表
     return request('/mall/api//ma/yyactivity/page', 'get', data, false)
   },
-  fetchAcDetail: (id, data) => { //活动详情
-    return request(`/mall/api//ma/yyactivity/detail/${id}`, 'get', data, false)
+  fetchAcDetail: (id) => { //活动详情
+    return request(`/mall/api//ma/yyactivity/detail/${id}`, 'get', "", false)
   },
   fetchNewsList: (data) => { // 0:资讯，1:交付展示，2:工程进度
     console.log('fetchNewsList--',data)

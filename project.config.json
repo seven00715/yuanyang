@@ -176,6 +176,34 @@
 					"id": -1,
 					"name": "pages/news/index",
 					"pathName": "pages/news/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/live/live-new/index",
+					"pathName": "pages/live/live-new/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/delivery/delivery-list/index",
+					"pathName": "pages/delivery/delivery-list/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/activity/activity-userInfo/index",
+					"pathName": "pages/activity/activity-userInfo/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/activity/activity-signUp/index",
+					"pathName": "pages/activity/activity-signUp/index",
 					"scene": null
 				}
 			]

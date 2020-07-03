@@ -4,6 +4,15 @@
   width: 100vw;
   min-height: 100vh;
 }
+.no-live{
+  height: 445rpx;
+  width: 100vw;
+  margin-bottom: 20px;
+}
+.no-live image {
+  width: 703rpx;
+  height: 445rpx;
+}
 
 .live-top {
   padding-top: 28rpx;
@@ -24,20 +33,25 @@
   overflow: hidden;
 }
 
-.live-waper-out .img-box image {
+.live-waper-out .img-box .cover-img {
   height: 334rpx;
   /* width: 703rpx; */
 }
 
 .img-box .pause {
+  width:105rpx;
+  height: 105rpx;
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translateX(-50%);
-  transform: translateY(-50%);
+  transform: translate(-50%,-50%);
+  /* transform: translateY(-50%); */
   z-index: 1000;
 }
-
+.img-box .pause image{
+    width:105rpx;
+  height: 105rpx;
+}
 .live-info {
   height: 111rpx;
   padding-left: 30rpx;
@@ -85,7 +99,7 @@
 .live-wraper .live-item{
   width: 100%;
   height: 190rpx;
- 
+
   box-sizing: border-box;
 }
 .live-wraper .live-img {

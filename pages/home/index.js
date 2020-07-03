@@ -52,10 +52,10 @@ Page({
   },
   onShow() {
     //更新tabbar购物车数量
-    wx.setTabBarBadge({
-      index: 2,
-      text: app.globalData.shoppingCartCount + ''
-    })
+    // wx.setTabBarBadge({
+    //   index: 2,
+    //   text: app.globalData.shoppingCartCount + ''
+    // })
   },
   loadData() {
     this.fetchAcList()
@@ -234,8 +234,8 @@ Page({
         url: `/pages/activity/activity-signUp/index?id=${item.id}&type=${item.type}`
       })
     } else if (item.type === 2) {
-      wx.navigateTo({
-        url: `/pages/activity/activity-invite/index?id=${item.id}&type=${item.type}`
+      wx.navigateTo({  
+        url: `/pages/activity/activity-invite/index?activityId=${item.id}&type=${item.type}`
       })
     }
 

@@ -7,15 +7,18 @@ Page({
   data: {
     activeInfo:{},
     tabIndex:0,
-    acOptions: {}
+    acOptions: {},
+    isEnd:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
-    this.acOptions = options
+    this.setData({
+      acOptions:options
+    })
+   
     this.fetchAcDetail(options)
   },
 
@@ -70,13 +73,15 @@ Page({
   //跳转到报名信息页面
   jumpToInput(e) {
     console.log(e,'传递的e')
+    console.log("this.data.acOptions", this.data.acOptions)
     wx.navigateTo({
       url: "/pages/activity/activity-userInfo/index",
-      success: function (res) {
+      success:  (res) => {
         // 通过eventChannel向被打开页面传送数据
         res.eventChannel.emit('acceptDataFromOpenerPage', {
           activitycolumn1: e.currentTarget.dataset.activitycolumn1,
-          id: e.currentTarget.dataset.id
+          id: e.currentTarget.dataset.id,
+          option: this.data.acOptions
         })
       }
     })
@@ -85,7 +90,7 @@ Page({
   async signActive(id){
     console.log('signActive activeInfo', this.activeInfo)
    const res =await app.api.signActive({
-     activityId: this.acOptions.id
+     activityId: this.data.acOptions.id
     })
     console.log('res---',res)
     if(res.code === 0) {
@@ -110,9 +115,19 @@ Page({
     })
     data.prizes.push(...data.prizes)
     data.activityRule=data.activityRule.split('\n')
-    this.setData({
-      activeInfo:data
-    })
+    const isEnd = data.isEnd
+    if (isEnd === 1){
+      this.setData({
+        activeInfo: data,
+        isEnd: true
+      })
+    }else {
+      this.setData({
+        activeInfo: data,
+        isEnd: false
+      })
+    }
+  
   },
   // 切换tab
   toggleTab(e){

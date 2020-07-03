@@ -42,10 +42,10 @@ App({
       .then(res => {
         let shoppingCartCount = res.data
         this.globalData.shoppingCartCount = shoppingCartCount + ''
-        wx.setTabBarBadge({
-          index: 2,
-          text: this.globalData.shoppingCartCount + ''
-        })
+        // wx.setTabBarBadge({
+        //   index: 2,
+        //   text: this.globalData.shoppingCartCount + ''
+        // })
       })
   },
   //初始化，供每个页面调用 

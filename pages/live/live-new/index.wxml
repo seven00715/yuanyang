@@ -1,36 +1,48 @@
 <!--pages/live/live-new.wxml-->
 <view class="live-waper-out">
-  <view class="live-top" wx:for="{{liveList}}" wx:key="index">
-    <view class="img-box">
-      <view class="pause">暂停</view>
-      <image src="/public/img/car.jpg"></image>
+  <view wx:if="{{liveList.length > 0}}">
+    <view class="live-top" wx:for="{{liveList}}" wx:key="index">
+      <navigator hover-class='none' url="plugin-private://wx2b03c6e691cd7370/pages/live-player-plugin?room_id={{item.id}}">
+        <view class="img-box">
+          <view class="pause">
+            <image src="/public/img/top-pause.png"></image>
+          </view>
+          <image class="cover-img" src="{{item.url[0]}}"></image>
+        </view>
+      </navigator>
+      <view class="live-info">
+        <view class="top-title">{{item.startTime}} - {{item.name}}正在直播</view>
+        <view class="top-times">主播：{{item.anchorName}}</view>
+      </view>
     </view>
-    <view class="live-info">
-      <view class="top-title">{{item.startTime}} - {{item.name}}正在直播</view>
-      <view class="top-times">主播：{{item.anchorName}}</view>
-    </view>
+  </view>
+  <view wx:else class="no-live flex-row-center-start">
+    <image src="/public/img/no-live.png" mode="aspectFit" lazy-load="false" binderror="" bindload="">
+    </image>
   </view>
   <view class="more-live">
     更多直播回放
   </view>
   <view class="live-wraper">
     <view class="live-list-wraper">
-    <view wx:for="{{replayList}}" wx:key="index">
-      <view class="live-item flex-row-between" >
-        <view class="live-item-left flex-row-start">
-          <view class="live-img">
-            <image src="{{item.coverImg}}"></image>
-          </view>
-          <view class="live-text">{{item.name}}</view>
-        </view>
+      <view wx:for="{{replayList}}" wx:key="index">
+        <navigator hover-class='none' url="plugin-private://wx2b03c6e691cd7370/pages/live-player-plugin?room_id={{item.roomId}}">
+          <view class="live-item flex-row-between">
+            <view class="live-item-left flex-row-start">
+              <view class="live-img">
+                <image src="{{item.coverImg}}"></image>
+              </view>
+              <view class="live-text">{{item.name}}</view>
+            </view>
 
-        <view class="handle-btn">
-          <image src="/public/img/bom-pause.png"></image>
-        </view>
+            <view class="handle-btn">
+              <image src="/public/img/bom-pause.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <view class="line"></view>
       </view>
-      <view class="line"></view>
-    </view>
     </view>
   </view>
-    <view class="cu-load bg-gray {{loadmore?'loading':'over'}}"></view>
+  <view class="cu-load bg-gray {{loadmore?'loading':'over'}}"></view>
 </view>

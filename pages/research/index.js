@@ -3,19 +3,7 @@ Page({
   data: {
     pickerHidden: true,
     chosen: '',
-    formData: [],
-    mockData: [{
-      "option": ["100元", "1000的优惠券"],
-      "question": "你想要100还是1个1000的优惠券",
-      "question_type": "2"
-    }, {
-      "option": ["石榴", "猕猴桃", "其他"],
-      "question": "给你100块你想买哪些东西",
-      "question_type": "3"
-    }, {
-      "question": "你想对小编说什么",
-      "question_type": "1"
-    }]
+    formData: []
   },
 
   onLoad: function(options) {
@@ -85,8 +73,8 @@ Page({
         icon: 'succes',
         mask: true
       })
+      wx.navigateBack()
     }
-    
   },
 
   formReset(e) {

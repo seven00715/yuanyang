@@ -21,7 +21,7 @@
         <!-- 没有邀请够 -->
         <view wx:if="{{activeInfo.yyActivityCalls.length < activeInfo.inviteNum}}">
           <image wx:for="{{activeInfo.yyActivityCalls}}" wx:key="index" class="invitee-img" src="{{item.callImg[0]}}"></image>
-          <image wx:for="{{activeInfo.inviteNum-activeInfo.yyActivityCalls.length}}" wx:key="index"  class="invitee-img" src="../../../assets/invitee-img.png"></image>
+          <image wx:for="{{activeInfo.inviteNum-activeInfo.yyActivityCalls.length}}" wx:key="index" class="invitee-img" src="../../../assets/invitee-img.png"></image>
         </view>
         <!-- 邀请够了,直接遍历 -->
         <view wx:if="{{activeInfo.yyActivityCalls.length == activeInfo.inviteNum}}">
@@ -35,16 +35,18 @@
           <image wx:for="{{5-activeInfo.yyActivityCalls.length}}" wx:key="index" class="invitee-img" src="../../../assets/invitee-img.png"></image>
         </view>
         <view wx:if="{{activeInfo.yyActivityCalls.length > 5}}">
-          <image wx:for="{{ml.slice(activeInfo.yyActivityCalls,0,5)}}" wx:key="id" class="invitee-img" 
-          src="{{item.callImg[0]}}"></image>
+          <image wx:for="{{ml.slice(activeInfo.yyActivityCalls,0,5)}}" wx:key="id" class="invitee-img" src="{{item.callImg[0]}}"></image>
           <text class="invitee-img">· · ·</text>
         </view>
       </view>
     </view>
 
     <rich-text class="uninviter-number" type="p">还差{{activeInfo.inviteNum}}人达成</rich-text>
-    
-    <button class="share-button" open-type="share"><image ontap="onInvite" src="../../../assets/invite-button.png" class="signbut"></image></button>
+    <image wx:if="{{isEnd}}" src="../../../assets/complete-btn.png" class="signbut"></image>
+    <button wx:else class="share-button" open-type="share">
+      <image wx:if="{{isBeiPerson}}" ontap="onInvite" src="../../../assets/bei-invite.png" class="signbut"></image>
+      <image wx:else ontap="onInvite" src="../../../assets/invite-button.png" class="signbut"></image>
+    </button>
   </view>
   <!-- 活动规则 -->
   <view class="active-rule">

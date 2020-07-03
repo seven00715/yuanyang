@@ -6,7 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    option: {
+      id: '',
+      type: ''
+    }
   },
 
   /**
@@ -16,10 +19,11 @@ Page({
     const eventChannel = this.getOpenerEventChannel()
     // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
     eventChannel.on('acceptDataFromOpenerPage', (data) => {
-      console.log(data)
+      console.log("acceptDataFromOpenerPage",data)
       this.setData({
         activitycolumn1: data.activitycolumn1,
-        id: data.id
+        id: data.id,
+        option: data.option
       })
     })
   },
@@ -86,12 +90,17 @@ Page({
 
   },
   async formSubmit(){
+    console.log('formSubmit this.data.option', this.data.option)
     const res = await app.api.signActive({ activityId: this.data.id, externInfo: JSON.stringify(this.data.activitycolumn1)})
     if (res.code === 0) {
       wx.showToast({
         title: res.data,
         icon: 'succes',
         mask: true
+      })
+      // wx.navigateBack()
+      wx.navigateTo({
+        url: `/pages/activity/activity-signUp/index?id=${this.data.option.id}&type=${this.data.option.type}`,
       })
     } else {
       wx.showToast({

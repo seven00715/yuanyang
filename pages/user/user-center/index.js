@@ -9,10 +9,10 @@ Page({
   },
   onShow() {
     //更新tabbar购物车数量
-    wx.setTabBarBadge({
-      index: 2,
-      text: app.globalData.shoppingCartCount + ''
-    })
+    // wx.setTabBarBadge({
+    //   index: 2,
+    //   text: app.globalData.shoppingCartCount + ''
+    // })
 
     let wxUser = app.globalData.wxUser
     this.setData({
@@ -57,7 +57,7 @@ Page({
       })
     } else if (item.type === 2) {
       wx.navigateTo({
-        url: `/pages/activity/activity-invite/index?id=${item.id}&type=${item.type}`
+        url: `/pages/activity/activity-invite/index?activityId=${item.id}&type=${item.type}`
       })
     }
   },

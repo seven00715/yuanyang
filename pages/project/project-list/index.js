@@ -48,7 +48,7 @@ Page({
   async fetchNewsList(code) {
     let p = {}
       if(code) {
-        p = { type: 2, id: code, ...this.data.page }
+        p = { type: 2, projectType: code, ...this.data.page }
       } else {
         p = { type: 2, ...this.data.page }
       }

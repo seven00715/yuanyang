@@ -7,7 +7,7 @@
         <view class="page-section" wx:if="{{item.question_type === '1'}}">
           <view class="page-section-title">{{item.question}}</view>
           <view class="weui-cell__bd" style="margin: 30rpx 0">
-            <textarea placeholder="form 中的 textarea" name="{{item.question}}" auto-focus/>
+            <textarea placeholder="请输入..." name="{{item.question}}" auto-focus/>
           </view>
         </view>
 

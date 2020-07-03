@@ -4,21 +4,35 @@
   height: 100vh;
   background-color: #fff;
   padding-top: 30rpx;
-  padding-left: 20rpx;
+  padding-left: 30rpx;
   padding-right: 20rpx;
 }
 
 .research-container .page-section {
-  margin-bottom: 30rpx;
+  margin-bottom: 40rpx;
+}
+.research-container .page-section-title {
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
 }
 
-radio-group {
-  margin: 20rpx;
+.radio-group label {
+  margin-right: 35rpx
 }
+
 .weui-cell {
-  margin-right: 20rpx;
+  margin-right: 35rpx;
 }
 .weui-cell__hd {
   display: inline-block;
+  margin-left: 20rpx;
+}
+.research-container checkbox,radio{
+  margin-right: 15rpx!important;
+}
+.research-container textarea{
+  border: 1rpx solid #ccc!important;
+  padding: 15rpx!important;
+  border-radius: 10rpx!important;
 }
 

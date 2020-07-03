@@ -54,7 +54,7 @@ Page({
   jumpToactive(e){
     const item = e.target.dataset.item
       wx.navigateTo({
-        url: `/pages/activity/activity-invite/index?id=${item.id}&type=${item.type}`
+        url: `/pages/activity/activity-invite/index?activityId=${item.id}&type=${item.type}`
       })
   },
   /**
